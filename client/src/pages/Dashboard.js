@@ -2,9 +2,9 @@ import React from "react";
 import "./Dashboard.css";
 function Dashboard() {
   return (
-    <div>
+    <main>
       <h1 className="header">Chill Pill Dashboard</h1>
-    </div>
+    </main>
   );
 }
 

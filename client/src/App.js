@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import LoginForm from "../src/components/LoginForm";
-
+import "../src/index.css";
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
 import SignupForm from "./components/SignupForm";
 import Dashboard from "./pages/Dashboard";
 import Nav from "./components/Nav";
+
 function App() {
   const [currentPage, handlePageChange] = useState("Dashboard");
   const renderPage = () => {
@@ -22,7 +23,11 @@ function App() {
     }
   };
   return (
-    <div className="App">
+    <div
+      style={{
+        backgroundImage: `url(${"backgroundImage"})`,
+      }}
+    >
       <header className="App-header">
         <ChakraProvider>
           <Nav currentPage={currentPage} handlePageChange={handlePageChange} />

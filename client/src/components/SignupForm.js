@@ -16,6 +16,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import backgroundImage from "../images/background.jpg";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -30,9 +31,12 @@ const SignupForm = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      backgroundColor="gray.200"
       justifyContent="center"
       alignItems="center"
+      backgroundImage="url('../images/background.jpg')"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
     >
       <Stack
         flexDir="column"
@@ -93,12 +97,12 @@ const SignupForm = () => {
           </form>
         </Box>
       </Stack>
-      <Box>
+      {/* <Box>
         New to us?{" "}
         <Link color="teal.500" href="#">
           Sign Up
-        </Link>
-      </Box>
+        </Link> */}
+      {/* </Box> */}
     </Flex>
   );
 };
