@@ -21,7 +21,8 @@ async function startServer() {
     server = new ApolloServer({
         typeDefs,
         resolvers,
-        // context: authMiddleware 
+        context: authMiddleware 
+        
       });
       await server.start();
       server.applyMiddleware({ app });
@@ -58,6 +59,6 @@ db.once('open', () => {
   });
 });
 
-process.on('uncaughtException', function(err) {
-  console.log('Caught exception: ' + err);
-});
+// process.on('uncaughtException', function(err) {
+//   console.log('Caught exception: ' + err);
+// });
