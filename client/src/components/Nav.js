@@ -2,7 +2,7 @@ import React from "react";
 import "./Nav.css";
 
 function Navigation(props) {
-  const tabs = ["Dashboard", "Signup", "Login"];
+  const tabs = ["Dashboard", "Signup", "Login", "Home"];
   return (
     <nav>
       <ul className="nav nav-tabs links">

@@ -45,9 +45,8 @@ const LoginForm = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
+        <Heading color="teal.400">Chill Pill</Heading>
+        <Box minW={{ base: "40%", md: "250px" }}>
           <form>
             <Stack
               spacing={4}
