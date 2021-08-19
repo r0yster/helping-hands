@@ -40,12 +40,12 @@ const SignupForm = () => {
     >
       <Stack
         flexDir="column"
-        mb="2"
+        mb="8rem"
         justifyContent="center"
         alignItems="center"
       >
         <Avatar bg="teal.500" />
-        <Heading color="teal.400">Sign Up</Heading>
+        <Heading color="whiteAlpha.900">Sign Up</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack

@@ -5,10 +5,13 @@ import "../src/index.css";
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
 import SignupForm from "./components/SignupForm";
-import Dashboard from "./pages/Dashboard";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Event from "./components/Event/Event";
+import Volunteer from "./components/Volunteer/Volunteer";
+import Aboutus from "./components/Aboutus/Aboutus";
 // import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,32 +21,13 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/signup" component={SignupForm} />
           <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/event" component={Event} />
+          <Route exact path="/volunteer" component={Volunteer} />
+          <Route exact path="/aboutus" component={Aboutus} />
         </Switch>
       </ChakraProvider>
     </BrowserRouter>
   );
-  // const [currentPage, handlePageChange] = useState("Home");
-  // const renderPage = () => {
-  //   switch (currentPage) {
-  //     case "Signup":
-  //       return <SignupForm />;
-  //     case "Login":
-  //       return <LoginForm />;
-  //     case "Dashboard":
-  //       return <Dashboard />;
-
-  //     default:
-  //       return <Home />;
-  //   }
-  // };
-  // return (
-  //   <header className="App-header">
-  //     <ChakraProvider>
-  //       <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
-  //       <div>{renderPage()}</div>
-  //     </ChakraProvider>
-  //   </header>
-  // );
 }
 
 export default App;
