@@ -1,0 +1,40 @@
+$theme-colors: (
+    "info": green,
+    "dark": teal
+);
+
+.navbar-brand{
+    margin-left:1rem;
+}
+.navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end
+  
+}
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+}
+
+.bio  {display: inline-flex;
+    flex-direction: column;
+    margin: auto;
+}
+.resume  {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+    margin-top:3rem;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";

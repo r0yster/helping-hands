@@ -1,49 +1,38 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LoginForm from "../src/components/LoginForm";
+import React, { useState } from "react";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
+import LoginForm from "./components/Login/LoginForm";
 import "../src/index.css";
+// import Header from "./components/Header/Header";
+import "../src/components/Nav/Nav.scss";
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
-import SignupForm from "./components/SignupForm";
-import Dashboard from "./pages/Dashboard";
+import SignupForm from "./components/Signup/SignupForm";
+// import Dashboard from "./pages/Dashboard";
+import Navigation from "./components/Nav/Nav";
 
-// import Nav from "./components/Nav";
-import Header from "./components/Header/Header";
 function App() {
+  const [currentPage, setCurrentPage] = useState("About");
+
+  const renderPage = () => {
+    switch (currentPage) {
+      // case "About":
+      //   return <About />;
+      case "Login":
+        return <LoginForm />;
+      case "SignupForm":
+        return <SignupForm />;
+      default:
+        return <SignupForm />;
+    }
+  };
   return (
-    <BrowserRouter>
-      <ChakraProvider>
-        <Header />
-        <Switch>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/signup" component={SignupForm} />
-          <Route exact path="/login" component={LoginForm} />
-        </Switch>
-      </ChakraProvider>
-    </BrowserRouter>
+    <ChakraProvider>
+      <div className="App">
+        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        {/* <Header /> */}
+        <div>{renderPage()}</div>
+      </div>
+    </ChakraProvider>
   );
-  // const [currentPage, handlePageChange] = useState("Home");
-  // const renderPage = () => {
-  //   switch (currentPage) {
-  //     case "Signup":
-  //       return <SignupForm />;
-  //     case "Login":
-  //       return <LoginForm />;
-  //     case "Dashboard":
-  //       return <Dashboard />;
-
-  //     default:
-  //       return <Home />;
-  //   }
-  // };
-  // return (
-  //   <header className="App-header">
-  //     <ChakraProvider>
-  //       <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
-  //       <div>{renderPage()}</div>
-  //     </ChakraProvider>
-  //   </header>
-  // );
 }
-
 export default App;
