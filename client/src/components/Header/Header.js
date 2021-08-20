@@ -14,6 +14,7 @@ function Header() {
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
           <Link to="/donate">Donate</Link>
+          <Link to="/Event">Events</Link>
         </div>
       </div>
     </header>
