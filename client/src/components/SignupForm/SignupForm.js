@@ -16,7 +16,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import backgroundImage from "../images/background.jpg";
+// import backgroundImage from "../images/background.jpg";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -40,12 +40,12 @@ const SignupForm = () => {
     >
       <Stack
         flexDir="column"
-        mb="2"
+        mb="8rem"
         justifyContent="center"
         alignItems="center"
       >
         <Avatar bg="teal.500" />
-        <Heading color="teal.400">Sign Up</Heading>
+        <Heading color="whiteAlpha.900">Sign Up</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
@@ -60,7 +60,7 @@ const SignupForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email Address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
