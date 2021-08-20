@@ -1,9 +1,28 @@
 const { User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require('../utils/auth');
+const { GraphQLScalarType, Kind } = require('graphql');
 
+const dateScalar = new GraphQLScalarType({
+  name: 'Date',
+  description: 'Date custom scalar type',
+
+  serialize(value){
+    return value.getTime();
+  },
+  parseValue(value){
+    return new Date(value);
+  },
+  parseLiteral(ast){
+    if (ast.kind === Kind.INT) {
+      return new Date(parseInt(ast.value, 10));
+    }
+    return null;
+  }
+}),
 
 const resolvers = {
+  Date: dateScalar,
   Query: {
    me: async (parent, args, context) => {
         if (context.user) {
