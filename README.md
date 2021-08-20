@@ -1,5 +1,5 @@
 # Helping Hands
-![](./Assets/helpinghands.png)
+![](./Client//Public/Assets/helpinghands.png)
 
 
 #### Table of Contents
@@ -40,14 +40,14 @@ Helping Hands' database was created using the non-tabular querying language [NoS
 ### Node.js
 
 Node.js was used in combination with VSC. Node.js allows the user to interact with the command line interface instead of the window object. You can download Node [here](https://nodejs.org/en/).
-![](Assets/node.jpg)
+![](./Client/Public/Assets/node.jpg)
 
 ### npm and Express
 
 [npm](https://www.npmjs.com/package/inquirer) was used in combination with [Express](https://expressjs.com/) to create a backend middleware server. Express is a flexible Node.js application frameworke that provides many features available for both mobile and the web. Please click the referenced information for documentation on npm and Express. Our database was createad using MySQL and our deployment through Heroku. Additional packages include:
 
-![](Assets/npm.JPG)
-![](Assets/express.JPG)
+![](./Client/Public/Assets/npm.JPG)
+![](./Client/Public/Assets/express.JPG)
 
 
 ### GitHub/Git
