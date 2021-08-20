@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LoginForm from "../src/components/LoginForm";
+import LoginForm from "./components/LoginForm/LoginForm";
 import "../src/index.css";
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
-import SignupForm from "./components/SignupForm";
+import SignupForm from "./components/SignupForm/SignupForm";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";

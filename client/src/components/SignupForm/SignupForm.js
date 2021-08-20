@@ -16,13 +16,12 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import backgroundImage from "../images/background.jpg";
-import "./LoginForm.css";
+// import backgroundImage from "../images/background.jpg";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
-const LoginForm = () => {
+const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
@@ -32,25 +31,22 @@ const LoginForm = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      justifyContent="flex-start"
-      alignItems="flex-start"
+      justifyContent="center"
+      alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      alignContent="flex-start"
     >
       <Stack
         flexDir="column"
-        mb="2"
+        mb="8rem"
         justifyContent="center"
         alignItems="center"
-        alignContent="flex-start"
-        marginLeft="5rem"
-        paddingTop="4em"
       >
-        <Heading color="Navy.400">Chill Pill</Heading>
-        <Box minW={{ base: "40%", md: "250px" }}>
+        <Avatar bg="teal.500" />
+        <Heading color="whiteAlpha.900">Sign Up</Heading>
+        <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
               spacing={4}
@@ -95,20 +91,20 @@ const LoginForm = () => {
                 colorScheme="teal"
                 width="full"
               >
-                Login
+                Sign Up
               </Button>
             </Stack>
           </form>
         </Box>
       </Stack>
-      <Box marginLeft="10rem">
+      {/* <Box>
         New to us?{" "}
-        <Link color="navy.500" href="/SignupForm">
+        <Link color="teal.500" href="#">
           Sign Up
-        </Link>
-      </Box>
+        </Link> */}
+      {/* </Box> */}
     </Flex>
   );
 };
 
-export default LoginForm;
+export default SignupForm;

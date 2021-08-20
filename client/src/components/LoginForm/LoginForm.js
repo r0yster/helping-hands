@@ -16,12 +16,13 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import backgroundImage from "../images/background.jpg";
+// import backgroundImage from "../images/background.jpg";
+import "./LoginForm.css";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
-const SignupForm = () => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
@@ -31,22 +32,25 @@ const SignupForm = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      justifyContent="center"
-      alignItems="center"
+      justifyContent="flex-start"
+      alignItems="flex-start"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      alignContent="flex-start"
     >
       <Stack
         flexDir="column"
-        mb="8rem"
+        mb="2"
         justifyContent="center"
         alignItems="center"
+        alignContent="flex-start"
+        marginLeft="5rem"
+        paddingTop="4em"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="whiteAlpha.900">Sign Up</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
+        <Heading color="Navy.400">Chill Pill</Heading>
+        <Box minW={{ base: "40%", md: "250px" }}>
           <form>
             <Stack
               spacing={4}
@@ -60,7 +64,7 @@ const SignupForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email Address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -91,20 +95,20 @@ const SignupForm = () => {
                 colorScheme="teal"
                 width="full"
               >
-                Sign Up
+                Login
               </Button>
             </Stack>
           </form>
         </Box>
       </Stack>
-      {/* <Box>
-        New to us?{" "}
-        <Link color="teal.500" href="#">
-          Sign Up
-        </Link> */}
-      {/* </Box> */}
+      <Box marginLeft="10rem">
+        {/* New to us?{" "} */}
+        <Link color="navy.500" href="/SignupForm">
+          {/* Sign Up */}
+        </Link>
+      </Box>
     </Flex>
   );
 };
 
-export default SignupForm;
+export default LoginForm;
