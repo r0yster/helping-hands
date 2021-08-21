@@ -53,6 +53,7 @@ const SignupForm = () => {
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              rounded="md"
             >
               <FormControl>
                 <InputGroup>

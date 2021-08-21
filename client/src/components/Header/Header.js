@@ -6,7 +6,7 @@ function Header() {
     <header>
       <div className="topnav">
         <Link classNameName="active" to="/aboutus">
-          Chill Pill
+          Helping Hands
         </Link>
 
         <div className="topnav-right">
@@ -14,6 +14,7 @@ function Header() {
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
           <Link to="/donate">Donate</Link>
+          <Link to="/event">Event</Link>
         </div>
       </div>
     </header>
