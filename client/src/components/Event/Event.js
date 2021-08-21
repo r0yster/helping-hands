@@ -1,16 +1,47 @@
 import React from 'react'
-import { Input } from "@chakra-ui/react"
-import { Button } from "@chakra-ui/react";
+import { Input, FormControl, FormLabel, Form, Stack, Button, ButtonGroup, Text, Center, Box, Flex } from "@chakra-ui/react"
+
 import "./Event.css";
 
 
 const Event = () => {
   return (
-    <div class="postinput">
-      <div>
-      <Input placeholder="Post an event" size="lg" />
-      </div>
-    </div>
+  
+    <Flex  flexDirection="column"
+    width="100wh"
+    height="100vh"
+    justifyContent="center"
+    alignItems="center"
+    backgroundImage="url('../images/background.jpg')"
+    backgroundPosition="center"
+    backgroundRepeat="no-repeat"
+    backgroundSize="cover">
+   
+    <Stack 
+     spacing={4}
+     p="1rem"
+     backgroundColor="whiteAlpha.900"
+     boxShadow="md"> 
+    <FormControl w="500px" id="first-name" isRequired>
+    <FormLabel>First name</FormLabel>
+    <Input placeholder="First name" />
+    
+    </FormControl>
+    <FormControl id="first-name" isRequired>
+    <FormLabel>Last name</FormLabel>
+    <Input placeholder="Last name" />
+    </FormControl>
+    <Input placeholder="Post an event" size="sm" />
+    <Button colorScheme="blue" size="sm">Submit</Button>
+       <Text mb="8px">Comment: </Text>
+      <Input
+        placeholder="Here is a sample placeholder"
+        size="sm"
+      />
+   
+    </Stack> 
+    </Flex>
+    
   )
 }
 
