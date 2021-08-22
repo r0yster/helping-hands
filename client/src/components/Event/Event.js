@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  Input,
-  FormControl,
-  FormLabel,
-  Form,
-  Stack,
-  Button,
-  ButtonGroup,
-  Text,
-  Center,
-  Box,
-  Flex,
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 const Event = () => {
   return (

@@ -6,16 +6,16 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-import LoginForm from "./components/LoginForm/LoginForm";
-import "../src/index.css";
-// 1. import `ChakraProvider` component
-import { ChakraProvider } from "@chakra-ui/react";
-import SignupForm from "./components/SignupForm/SignupForm";
 
+import "../src/index.css";
+
+import { ChakraProvider } from "@chakra-ui/react";
+import LoginForm from "./components/LoginForm/LoginForm";
+import SignupForm from "./components/SignupForm/SignupForm";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
-// import Nav from "./components/Nav";
+import Donate from "./components/Donate/Donate";
 import Header from "./components/Header/Header";
 
 const httpLink = createHttpLink({
@@ -26,6 +26,7 @@ const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
 });
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/event" component={Event} />
             <Route exact path="/volunteer" component={Volunteer} />
             <Route exact path="/aboutus" component={Aboutus} />
+            <Route exact path="/Donate" component={Donate} />
           </Switch>
         </ChakraProvider>
       </BrowserRouter>

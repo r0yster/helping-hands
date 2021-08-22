@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <div className="topnav">
-        <Link classNameName="active" to="/aboutus">
+        <Link className="active" to="/aboutus">
           Helping Hands
         </Link>
 
@@ -13,8 +13,10 @@ function Header() {
           <Link to="/aboutus">About</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
-          <Link to="/donate">Donate</Link>
           <Link to="/event">Event</Link>
+          <Link to="/donate">
+            Donate
+          </Link>
         </div>
       </div>
     </header>

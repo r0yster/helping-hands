@@ -1,4 +1,4 @@
-import { Flex, Box, Stack, Text, Image as Img } from "@chakra-ui/react";
+import { Flex, Box, Stack, Image as Img } from "@chakra-ui/react";
 import React from "react";
 import source from "../Aboutus/icon2.png";
 function Aboutus() {
@@ -22,9 +22,7 @@ function Aboutus() {
         rounded="md"
         bg="white"
         spacing={4}
-        p="1rem"
         backgroundColor="whiteAlpha.900"
-        boxShadow="md"
         flexDir="column"
         mb="8rem"
         justifyContent="center"
@@ -55,14 +53,9 @@ function Aboutus() {
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {" "}
-            <Img
-              src={source}
-              alt="helping-hands icon"
-              boxSize="150px"
-              margin="0"
-              alignItems="center"
-              backgroundClip="transparent"
-            />
+            <Box size="sm">
+              <Img src={source} alt="helping-hands icon" size="250px" />
+            </Box>
           </Flex>
 
           <Box>
