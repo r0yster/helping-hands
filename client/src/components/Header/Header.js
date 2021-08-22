@@ -13,11 +13,10 @@ function Header() {
           <Link to="/aboutus">About</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
-          <Link to="/event">Event</Link>
-          <Link to="/donate">
-            Donate
-          </Link>
-        </div>
+          <Link to="/Event">Events</Link>
+          <Link to="/Volunteer">Volunteer</Link>
+          <Link to="/donate">Donate</Link>
+          </div>
       </div>
     </header>
   );
