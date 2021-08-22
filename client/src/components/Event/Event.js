@@ -1,5 +1,17 @@
 import React from 'react'
-import { Input, FormControl, FormLabel, Form, Stack, Button, ButtonGroup, Text, Center, Box, Flex } from "@chakra-ui/react"
+import {  Input, 
+          FormControl,
+          FormLabel, 
+          Form, 
+          Stack, 
+          Button, 
+          ButtonGroup, 
+          Text, 
+          Center, 
+          Box, 
+          Flex, 
+          SimpleGrid } 
+          from "@chakra-ui/react"
 
 import "./Event.css";
 
@@ -22,7 +34,8 @@ const Event = () => {
      p="1rem"
      backgroundColor="whiteAlpha.900"
      boxShadow="md"> 
-    <FormControl w="500px" id="first-name" isRequired>
+    <SimpleGrid columns={2} spacing={10}>
+    <FormControl w="200px" id="first-name" isRequired>
     <FormLabel>First name</FormLabel>
     <Input placeholder="First name" />
     
@@ -31,8 +44,15 @@ const Event = () => {
     <FormLabel>Last name</FormLabel>
     <Input placeholder="Last name" />
     </FormControl>
-    <Input placeholder="Post an event" size="sm" />
-    <Button colorScheme="blue" size="sm">Submit</Button>
+    </SimpleGrid>
+    <Input placeholder="Post an event" size="lg" />
+    <Button
+                borderRadius={0}
+                type="submit"
+                variant="solid"
+                colorScheme="teal"
+                width="full"
+              >Submit</Button>
        <Text mb="8px">Comment: </Text>
       <Input
         placeholder="Here is a sample placeholder"
