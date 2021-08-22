@@ -5,8 +5,8 @@ function Header() {
   return (
     <header>
       <div className="topnav">
-        <Link classNameName="active" to="/aboutus">
-          Chill Pill
+        <Link className="active" to="/aboutus">
+          Helping Hands
         </Link>
 
         <div className="topnav-right">

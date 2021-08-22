@@ -16,14 +16,25 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-
-    comments: async (parent, { username }) => {
+    posts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
+      return Post.find(params).sort({ createdAt: -1 });
     },
-    comment: async (parent, { _id }) => {
-      return Comment.findOne({ _id });
+    post: async (parent, { _id }) => {
+      return Post.findOne({ _id });
     },
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('friends')
+        .populate('thoughts');
+    },
+    // get a user by username
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('friends')
+    }  
   },
   Mutation: {
     addUser: async (parent, args) => {
