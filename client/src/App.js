@@ -9,18 +9,20 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+
+
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
+import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
-// import Nav from "./components/Nav";
+import Donate from "./components/Donate/Donate";
 import Header from "./components/Header/Header";
 
 const httpLink = createHttpLink({
-  uri: "/graphql"
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -40,19 +42,19 @@ function App() {
   });
   return (
     <ApolloProvider client={client}>
-    <BrowserRouter>
-      <ChakraProvider>
-        <Header />
-        <Switch>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/signup" component={SignupForm} />
-          <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/event" component={Event} />
-          <Route exact path="/volunteer" component={Volunteer} />
-          <Route exact path="/aboutus" component={Aboutus} />
-        </Switch>
-      </ChakraProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <ChakraProvider>
+          <Header />
+          <Switch>
+            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/event" component={Event} />
+            <Route exact path="/volunteer" component={Volunteer} />
+            <Route exact path="/aboutus" component={Aboutus} />
+            <Route exact path="/Donate" component={Donate} />
+          </Switch>
+        </ChakraProvider>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }

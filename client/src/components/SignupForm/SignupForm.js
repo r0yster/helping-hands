@@ -9,10 +9,8 @@ import {
   InputLeftElement,
   chakra,
   Box,
-  Link,
   Avatar,
   FormControl,
-  FormHelperText,
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
@@ -53,6 +51,7 @@ const SignupForm = () => {
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              rounded="md"
             >
               <FormControl>
                 <InputGroup>

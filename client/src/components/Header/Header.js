@@ -5,15 +5,18 @@ function Header() {
   return (
     <header>
       <div className="topnav">
-        <Link classNameName="active" to="/aboutus">
-          Chill Pill
+        <Link className="active" to="/aboutus">
+          Helping Hands
         </Link>
 
         <div className="topnav-right">
           <Link to="/aboutus">About</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
-          <Link to="/donate">Donate</Link>
+          <Link to="/event">Event</Link>
+          <Link to="/donate">
+            Donate
+          </Link>
         </div>
       </div>
     </header>
