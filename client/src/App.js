@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import LoginForm from "./components/LoginForm/LoginForm";
+import { setContext } from '@apollo/client/link/context';
+import "../src/index.css";
 import {
   ApolloProvider,
   ApolloClient,
@@ -7,8 +10,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
-import "../src/index.css";
 
+// 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
@@ -22,12 +25,21 @@ const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
 
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  }
 });
 
 function App() {
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+  });
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
