@@ -9,7 +9,6 @@ import {
   InputLeftElement,
   chakra,
   Box,
-  Link,
   Avatar,
   FormControl,
   FormHelperText,
@@ -32,31 +31,31 @@ const LoginForm = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      justifyContent="flex-start"
-      alignItems="flex-start"
+      justifyContent="center"
+      alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      alignContent="flex-start"
+      rounded="md"
     >
       <Stack
         flexDir="column"
-        mb="2"
+        mb="8rem"
         justifyContent="center"
         alignItems="center"
-        alignContent="flex-start"
-        marginLeft="5rem"
-        paddingTop="4em"
+        rounded="md"
       >
-        <Heading color="Navy.400">Helping Hands</Heading>
-        <Box minW={{ base: "40%", md: "250px" }}>
+        <Avatar bg="teal.500" />
+        <Heading color="whiteAlpha.900">Login</Heading>
+        <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
               spacing={4}
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              rounded="md"
             >
               <FormControl>
                 <InputGroup>
@@ -64,7 +63,7 @@ const LoginForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="Email Address" />
+                  <Input type="email" placeholder="email address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -84,9 +83,9 @@ const LoginForm = () => {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
-                {/* <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
-                </FormHelperText> */}
+                <FormHelperText textAlign="right">
+                  {/* <Link>forgot password?</Link> */}
+                </FormHelperText>
               </FormControl>
               <Button
                 borderRadius={0}
@@ -101,12 +100,12 @@ const LoginForm = () => {
           </form>
         </Box>
       </Stack>
-      <Box marginLeft="10rem">
-        {/* New to us?{" "} */}
-        <Link color="navy.500" href="/SignupForm">
-          {/* Sign Up */}
+      {/* <Box>
+        New to us?{" "}
+        <Link color="teal.500" href="#">
+          Sign Up
         </Link>
-      </Box>
+      </Box> */}
     </Flex>
   );
 };
