@@ -13,7 +13,6 @@ import {
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
-import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
