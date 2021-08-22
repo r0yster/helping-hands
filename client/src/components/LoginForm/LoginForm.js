@@ -49,7 +49,7 @@ const LoginForm = () => {
         marginLeft="5rem"
         paddingTop="4em"
       >
-        <Heading color="Navy.400">Chill Pill</Heading>
+        <Heading color="Navy.400">Helping Hands</Heading>
         <Box minW={{ base: "40%", md: "250px" }}>
           <form>
             <Stack

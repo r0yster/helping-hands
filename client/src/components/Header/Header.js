@@ -6,7 +6,7 @@ function Header() {
     <header>
       <div className="topnav">
         <Link classNameName="active" to="/aboutus">
-          Chill Pill
+          Helping Hands
         </Link>
 
         <div className="topnav-right">

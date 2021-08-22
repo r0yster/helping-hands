@@ -20,7 +20,8 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import Header from "./components/Header/Header";
 
 const httpLink = createHttpLink({
-  uri: "/graphql"
+  uri: "http://localhost:3001/graphql"
+  // uri: "/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
