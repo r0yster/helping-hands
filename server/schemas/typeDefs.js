@@ -29,11 +29,14 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
   type Query {
     me: User
-    comments(username: String): [Comment]
-    comment(_id: ID!): Comment
-  }
+    users: [User]
+    user(username: String!): User
+    posts(username: String): [User]
+    post(_id: ID!): User
+    }
 
   type Mutation {
     login(email: String!, password: String!): Auth
