@@ -10,13 +10,12 @@ function Header() {
         </Link>
 
         <div className="topnav-right">
-          <Link to="/aboutus">About</Link>
+          {/* <Link to="/aboutus">About</Link> */}
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
-          <Link to="/event">Event</Link>
-          <Link to="/donate">
-            Donate
-          </Link>
+          <Link to="/Event">Events</Link>
+          <Link to="/Volunteer">Volunteer</Link>
+          <Link to="/donate">Donate</Link>
         </div>
       </div>
     </header>

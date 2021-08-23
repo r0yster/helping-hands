@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/LoginForm/LoginForm";
-import { setContext } from '@apollo/client/link/context';
+import { setContext } from "@apollo/client/link/context";
 import "../src/index.css";
 import {
   ApolloProvider,
@@ -9,7 +9,6 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
@@ -25,31 +24,32 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ''
-    }
-  }
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
 });
 
 function App() {
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
         <ChakraProvider>
           <Header />
+          <Route exact path="/aboutus" component={Aboutus} />
           <Switch>
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />
             <Route exact path="/volunteer" component={Volunteer} />
-            <Route exact path="/aboutus" component={Aboutus} />
+            {/* <Route exact path="/aboutus" component={Aboutus} /> */}
             <Route exact path="/Donate" component={Donate} />
           </Switch>
         </ChakraProvider>
