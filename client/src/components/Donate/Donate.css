@@ -11,28 +11,6 @@ button {
   border-style: none;
 }
 
-/* html {
-  background-color: #6772e5;
-  font-size: 16px;
-  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  text-rendering: optimizeLegibility;
-  height: 100%;
-} */
-/* 
-body {
-  height: 100%;
-  margin: 0;
-} */
-
-/* #root {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 .AppWrapper {
   width: 500px;
   height: 400px;
@@ -57,13 +35,13 @@ body {
 }
 
 .FormGroup {
-  margin: 0 15px 3px;
+  margin: 0 15px 2px;
   padding: 0;
   border-style: none;
   background-color: #367e7f;
   will-change: opacity, transform;
-  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #367e7f;
+  /* box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #367e7f; */
   border-radius: 4px;
 }
 .FormAmount {
@@ -92,7 +70,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: #367e7f;
+  /* background-color: #367e7f; */
   border-radius: 4px;
 }
 
