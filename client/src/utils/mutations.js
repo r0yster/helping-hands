@@ -6,6 +6,7 @@ export const LOGIN = gql`
       token
       user {
         _id
+        username
       }
     }
   }
@@ -31,3 +32,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_POST = gql`
+mutation AddPostMutation($addPostPostText: String!) {
+  addPost(postText: $addPostPostText) {
+    _id
+    postText
+    createdAt
+    username
+    commentCount
+    comments {
+      _id
+      
+    }
+  }
+}`

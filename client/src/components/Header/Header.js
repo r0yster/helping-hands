@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+
 import "./Header.css";
 function Header() {
-  const logout = (event) => {
+  const logout = event => {
     event.preventDefault();
     Auth.logout();
   };
@@ -12,11 +13,10 @@ function Header() {
   return (
     <header>
       <div className="topnav">
-        <Link className="active" to="/aboutus">
+        <Link className="active" to="/">
           Helping Hands
         </Link>
         <div className="topnav-right">
-          <Link to="/signup">Signup</Link>
           {loggedIn ? (
             <>
               <Link to="/Event">Events</Link>
@@ -27,7 +27,8 @@ function Header() {
           ) : (
             <>
               <Link to="/login">Login</Link>
-            </>
+              <Link to="/signup">Signup</Link>
+            </>  
           )}
           <Link to="/Volunteer">Volunteer</Link>
           <Link to="/donate">Donate</Link>

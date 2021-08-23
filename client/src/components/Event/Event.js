@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import {
   Input,
   FormControl,
@@ -9,10 +9,39 @@ import {
   Flex,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { useMutation } from '@apollo/client';
+import { ADD_POST } from "../../utils/mutations";
 
 import "./Event.css";
+import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
 const Event = () => {
+  const [addPost, { error }] = useMutation(ADD_POST)
+  const handleChange = event => {
+    if (event.target.value.length <= 280) {
+      setText(event.target.value);
+      setCharacterCount(event.target.value.length);
+    }
+  };
+
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+  
+    try {
+      // add post to database
+      await addPost({
+        variables: { postText }
+      });
+  
+      // clear form value
+      setText('');
+      setCharacterCount(0);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  const [postText, setText] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
   return (
     <Flex
       flexDirection="column"
@@ -32,7 +61,7 @@ const Event = () => {
         boxShadow="md"
       >
         <SimpleGrid columns={2} spacing={10}>
-          <FormControl w="200px" id="first-name" isRequired>
+          <FormControl w="200px" id="first-name" isRequired  onSubmit={handleFormSubmit}>
             <FormLabel>First name</FormLabel>
             <Input placeholder="First name" />
           </FormControl>
@@ -41,7 +70,17 @@ const Event = () => {
             <Input placeholder="Last name" />
           </FormControl>
         </SimpleGrid>
-        <Input placeholder="Post an event" size="lg" />
+        <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
+        Character Count: {characterCount}/280
+        {error && <span className="ml-2">Something went wrong...</span>}
+      </p>
+        <textarea
+          placeholder="Post an event..."
+          value={postText}
+          className="form-input col-12 col-md-9"
+          onChange={handleChange}
+        ></textarea>
+
         <Button
           borderRadius={0}
           type="submit"
@@ -53,6 +92,7 @@ const Event = () => {
         </Button>
         <Text mb="8px">Comment: </Text>
         <Input placeholder="Here is a sample placeholder" size="sm" />
+      
       </Stack>
     </Flex>
   );

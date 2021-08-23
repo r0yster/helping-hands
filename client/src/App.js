@@ -43,8 +43,8 @@ function App() {
       <BrowserRouter>
         <ChakraProvider>
           <Header />
-          <Route exact path="/" component={Aboutus} />
           <Switch>
+            <Route exact path="/" component={Aboutus} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />
