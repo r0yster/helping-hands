@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 import {
   Flex,
   Heading,
@@ -22,9 +25,36 @@ const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+  
+    try {
+      const { data } = await login({
+        variables: { ...formState }
+      });
+
+      Auth.login(data.login.token);
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <Flex
@@ -49,7 +79,7 @@ const LoginForm = () => {
         <Avatar bg="teal.500" />
         <Heading color="whiteAlpha.900">Login</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <Stack
               spacing={4}
               p="1rem"
@@ -63,7 +93,7 @@ const LoginForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" name="email" placeholder="email address" onChange={handleChange}/>
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -75,7 +105,9 @@ const LoginForm = () => {
                   />
                   <Input
                     type={showPassword ? "text" : "password"}
+                    name="password"
                     placeholder="Password"
+                    onChange={handleChange}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
