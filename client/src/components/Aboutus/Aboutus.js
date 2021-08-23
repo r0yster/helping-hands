@@ -1,6 +1,6 @@
 import { Flex, Box, Stack, Image as Img } from "@chakra-ui/react";
 import React from "react";
-import source from "../Aboutus/icon3.png";
+import source from "../images/logo3.png";
 function Aboutus() {
   return (
     <Flex
@@ -53,12 +53,7 @@ function Aboutus() {
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {" "}
-            <Img
-              src={source}
-              alt="helping-hands icon"
-              boxSize="150px"
-       
-            />
+            <Img src={source} alt="helping-hands icon" boxSize="150px" />
           </Flex>
 
           <Box>

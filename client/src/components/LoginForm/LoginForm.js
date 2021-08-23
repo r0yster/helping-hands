@@ -63,7 +63,7 @@ const LoginForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email Address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -93,6 +93,7 @@ const LoginForm = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                rounded="md"
               >
                 Login
               </Button>
