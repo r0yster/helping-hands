@@ -7,7 +7,7 @@ const SinglePost = props => {
   const { id: postId } = useParams();
 
 const { loading, data } = useQuery(QUERY_POST, {
-  variables: { id: postId }
+  variables: { postId: postId }
 });
 
 const post = data?.post || {};
