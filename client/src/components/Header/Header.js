@@ -5,7 +5,7 @@ import Auth from "../../utils/auth";
 import "./Header.css";
 
 function Header() {
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
@@ -30,7 +30,7 @@ function Header() {
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
-            </>  
+            </>
           )}
           <Link to="/Volunteer">Volunteer</Link>
           <Link to="/donate">Donate</Link>
