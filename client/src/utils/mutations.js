@@ -34,8 +34,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_POST = gql`
-mutation AddPostMutation($addPostPostText: String!) {
-  addPost(postText: $addPostPostText) {
+mutation AddPostMutation($addPostText: String!) {
+  addPost(postText: $addPostText) {
     _id
     postText
     createdAt

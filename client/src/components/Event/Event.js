@@ -1,6 +1,7 @@
-import { React, useState } from "react";
+import { React, useState,  } from "react";
 import {
   Input,
+ Form,
   FormControl,
   FormLabel,
   Stack,
@@ -49,6 +50,7 @@ const Event = () => {
 
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
+     
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
@@ -58,7 +60,10 @@ const Event = () => {
     event.preventDefault();
 
     try {
-      // add post to database
+      console.log(event.target.value)
+      alert("you clicked me")
+      // add  to database
+      
       await addPost({
         variables: { postText },
       });
@@ -83,6 +88,7 @@ const Event = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
+      <form onSubmit={handleFormSubmit}>
       <Stack
         spacing={4}
         p="1rem"
@@ -90,11 +96,12 @@ const Event = () => {
         boxShadow="md"
       >
         <SimpleGrid columns={2} spacing={10}>
+          
           <FormControl
             w="200px"
             id="first-name"
             isRequired
-            onSubmit={handleFormSubmit}
+            
           >
             <FormLabel>First name</FormLabel>
             <Input placeholder="First name" />
@@ -103,6 +110,7 @@ const Event = () => {
             <FormLabel>Last name</FormLabel>
             <Input placeholder="Last name" />
           </FormControl>
+          
         </SimpleGrid>
         <p
           className={`m-0 ${
@@ -115,6 +123,7 @@ const Event = () => {
         <textarea
           placeholder="Post an event..."
           value={postText}
+          name={postText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -128,11 +137,15 @@ const Event = () => {
         >
           Submit
         </Button>
-
+        
         {/* <Text mb="8px">Comment: </Text>
         <Input placeholder="Here is a sample placeholder" size="sm" /> */}
-      <Home />
+     
       </Stack>
+      </form >
+      <div style= {{ color:"navy", fontWeight:"bold", backgroundColor: "white"}}>
+      <Home />
+      </div>
     </Flex>
   );
 };
