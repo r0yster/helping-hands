@@ -16,36 +16,39 @@ import Home from "../Home/home";
 import "./Event.css";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
+// useEffect?
+
+
 const Event = () => {
   const [postText, setText] = useState("");
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
   const [characterCount, setCharacterCount] = useState(0);
   const [addPost, { error }] = useMutation(
-    ADD_POST,
+    ADD_POST, {variables: {addPostText:postText}},
 
-    {
-      update(cache, { data: { addPost } }) {
-        try {
-          // update posts array's cache
-          // could potentially not exist yet, so wrap in a try/catch
-          const { posts } = cache.readQuery({ query: QUERY_POSTS });
-          cache.writeQuery({
-            query: QUERY_POSTS,
-            data: { posts: [addPost, ...posts] },
-          });
-        } catch (e) {
-          console.error(e);
-        }
+    // {
+    //   update(cache, { data: { addPost } }) {
+    //     try {
+    //       // update posts array's cache
+    //       // could potentially not exist yet, so wrap in a try/catch
+    //       const { posts } = cache.readQuery({ query: QUERY_POSTS });
+    //       cache.writeQuery({
+    //         query: QUERY_POSTS,
+    //         data: { posts: [addPost, ...posts] },
+    //       });
+    //     } catch (e) {
+    //       console.error(e);
+    //     }
 
-        // update me object's cache
-        const { me } = cache.readQuery({ query: QUERY_ME });
-        cache.writeQuery({
-          query: QUERY_ME,
-          data: { me: { ...me, posts: [...me.posts, addPost] } },
-        });
-      },
-    }
+    //     // update me object's cache
+    //     const { me } = cache.readQuery({ query: QUERY_ME });
+    //     cache.writeQuery({
+    //       query: QUERY_ME,
+    //       data: { me: { ...me, posts: [...me.posts, addPost] } },
+    //     });
+    //   },
+    // }
   );
 
   const handleChange = (event) => {
