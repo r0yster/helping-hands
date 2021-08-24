@@ -16,7 +16,7 @@ import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
 import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
@@ -50,7 +50,7 @@ function App() {
             <Route exact path="/volunteer" component={Volunteer} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>

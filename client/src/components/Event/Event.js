@@ -10,8 +10,6 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import "./Event.css";
-
 const Event = () => {
   return (
     <Flex
