@@ -1,7 +1,7 @@
 const { User, Post, Comment } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const { post } = require("../models/Comment");
+
 
 const resolvers = {
   Query: {
@@ -35,7 +35,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("posts]");
+        .populate("posts");
     },
   },
   Mutation: {

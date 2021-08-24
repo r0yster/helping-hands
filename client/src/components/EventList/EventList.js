@@ -17,7 +17,8 @@ const EventList = ({posts, title }) => {
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
-              >
+                >
+                
                 {post.username}
               </Link>{' '}
               post on {post.createdAt}
