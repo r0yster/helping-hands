@@ -1,22 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LoginForm from "./components/LoginForm/LoginForm";
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, operationName } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import "../src/index.css";
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from "@apollo/client";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import "../src/index.css";
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
+import SinglePost from "./components/SingleEvent/SingleEvent";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
@@ -32,11 +30,12 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
+
 function App() {
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
@@ -48,6 +47,8 @@ function App() {
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />
             <Route exact path="/volunteer" component={Volunteer} />
+            {/* <Route exact path="/aboutus" component={Aboutus} /> */}
+            <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
           <Footer />
