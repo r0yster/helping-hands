@@ -35,7 +35,7 @@ const EventList = ({posts, title }) => {
             <div className="card-body">
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
-                <p>{post.comments.commentBody}</p>
+           console.log({post.comment})
                 <p className="mb-0">
                    {post.commentCount} || Click to{' '}
                   {post.commentCount ? 'see' : 'start'} the discussion!

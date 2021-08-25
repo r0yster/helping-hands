@@ -13,7 +13,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { useQuery } from "@apollo/client";
 import Home from "../Home/home";
-import "./Event.css";
+
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
 // useEffect?
@@ -25,7 +25,7 @@ const Event = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const [addPost, { error }] = useMutation(ADD_POST, {
     variables: { addPostText: postText },
-    
+
     update(cache, { data: { addPost } }) {
       // console.log("helloworld");
       try {
@@ -39,7 +39,6 @@ const Event = () => {
       } catch (e) {
         console.error(e);
       }
-      
     },
   });
 
@@ -122,8 +121,6 @@ const Event = () => {
           >
             Submit
           </Button>
-
-      
         </Stack>
       </form>
       <div

@@ -28,8 +28,13 @@ const Volunteer = () => {
         p="1rem"
         backgroundColor="whiteAlpha.900"
         boxShadow="md"
+        rounded="md"
       >
-        <Heading color="#367e7f">Volunteer</Heading>
+        <Flex justifyContent="center">
+          {" "}
+          <Heading color="#367e7f">Volunteer</Heading>
+        </Flex>
+
         <SimpleGrid columns={2} spacing={10}>
           <FormControl w="200px" id="first-name" isRequired>
             <FormLabel>First name</FormLabel>
@@ -48,6 +53,7 @@ const Volunteer = () => {
           variant="solid"
           colorScheme="teal"
           width="full"
+          rounded="md"
         >
           Submit
         </Button>

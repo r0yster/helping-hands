@@ -9,8 +9,6 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
 import SignupForm from "./components/SignupForm/SignupForm";
 import Event from "./components/Event/Event";
@@ -19,6 +17,8 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
 import Header from "./components/Header/Header";
 import SinglePost from "./components/SingleEvent/SingleEvent";
+import Footer from "./components/Footer/Footer";
+
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
@@ -54,6 +54,7 @@ function App() {
             <Route exact path="/Donate" component={Donate} />
             {/* <Route exact path = "/profile" component = {Profile} /> */}
           </Switch>
+          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>
