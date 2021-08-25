@@ -6,9 +6,14 @@ import {
   FormControl,
   FormLabel,
   Stack,
+  Heading,
+  Box,
+  Grid,
+  GridItem,
   Button,
   Flex,
   SimpleGrid,
+  VStack,
 } from "@chakra-ui/react";
 import CommentList from '../CommentList/CommentList';
 
@@ -19,12 +24,10 @@ const EventList = ({posts, title }) => {
   }
 
   return (
-    <div>
-      <h3>{title}</h3>
-      {posts &&
-        posts.map(post => (
-           
-          <div key={post._id} className="card mb-3">
+    <VStack spacing={4} p="1rem" backgroundColor="whiteAlpha.900" boxShadow="md">
+      <Heading>{title}</Heading>
+        {posts && posts.map(post => (
+          <Box key={post._id}>
             <p className="card-header">
               <Link to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
@@ -38,13 +41,13 @@ const EventList = ({posts, title }) => {
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">
-                   {post.commentCount} Comments || Click to view details!
+                  {post.commentCount} Comments || Click to view details!
                 </p>
               </Link>
             </div>
-          </div>
+          </Box>
         ))}
-    </div>
+    </VStack>
   );
 };
 

@@ -1,19 +1,21 @@
 import { React, useState } from "react";
-import { Input, Form, FormControl, FormLabel, Stack, Button, Flex, SimpleGrid } from "@chakra-ui/react";
-import { useMutation } from "@apollo/client";
-import { ADD_POST } from "../../utils/mutations";
+import { Input, Form, FormControl, FormLabel, Stack, Button, Flex, SimpleGrid, Box } from "@chakra-ui/react";
+
 import { useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { QUERY_POSTS } from "../../utils/queries";
+import { ADD_POST } from "../../utils/mutations";
+
 import EventList from "../EventList/EventList";
-
-import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
-
-// useEffect?
 
 const Event = () => {
   const [postText, setText] = useState("");
   const { loading, data } = useQuery(QUERY_POSTS);
+
   const posts = data?.posts || [];
+
   const [characterCount, setCharacterCount] = useState(0);
+  
   const [addPost, { error }] = useMutation(ADD_POST, {
     variables: { addPostText: postText },
 
@@ -75,11 +77,9 @@ const Event = () => {
           backgroundColor="whiteAlpha.900"
           boxShadow="md"
         >
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-error" : ""
-            }`}
-          >
+          <p className={`m-0 ${
+            characterCount === 280 || error ? "text-error" : ""
+          }`}>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
           </p>
@@ -102,16 +102,17 @@ const Event = () => {
           </Button>
         </Stack>
       </form>
+      
       <div style={{ color: "navy", fontWeight: "bold", backgroundColor: "white" }}>
-              <div className="flex-row justify-space-between">
-        <div className="col-12 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-          <EventList posts={posts} title="Events Listed:" />
-        )}
-      </div>
-    </div>
+        <div className="flex-row justify-space-between">
+          <div className="col-12 mb-3">
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <EventList posts={posts} title="See Events List Below:" />
+            )}
+          </div>
+        </div>
       </div>
     </Flex>
   );
