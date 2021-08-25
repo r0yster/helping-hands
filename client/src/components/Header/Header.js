@@ -17,7 +17,6 @@ function Header() {
         <Link className="active" to="/">
           Helping Hands
         </Link>
-
         <div className="topnav-right">
           {loggedIn ? (
             <>
@@ -39,5 +38,4 @@ function Header() {
     </header>
   );
 }
-
 export default Header;

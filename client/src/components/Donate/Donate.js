@@ -202,7 +202,7 @@ const CheckoutForm = () => {
           label="Phone"
           id="phone"
           type="tel"
-          placeholder="  (941) 555-0123"
+          placeholder="  (512) 867-5309"
           required
           autoComplete="tel"
           value={billingDetails.phone}
