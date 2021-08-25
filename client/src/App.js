@@ -1,5 +1,11 @@
 import React from "react";
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, operationName } from "@apollo/client";
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+  operationName,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -32,7 +38,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 function App() {

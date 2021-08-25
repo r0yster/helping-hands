@@ -1,7 +1,8 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../../utils/queries';
-import EventList from '../EventList/EventList';
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../../utils/queries";
+import EventList from "../EventList/EventList";
+import { Box } from "@chakra-ui/react";
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -9,18 +10,19 @@ const Home = () => {
   console.log(posts);
   return (
     <main>
-    <div className="flex-row justify-space-between">
-      <div className="col-12 mb-3">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <EventList posts={posts} title="Events Listed:" />
-        )}
+      <div>
+        <div>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <Box boxSize="sm" p="6" rounded="md">
+              <EventList posts={posts} title="Events Listed:" />
+            </Box>
+          )}
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
   );
-
 };
 
 export default Home;

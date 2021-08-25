@@ -10,9 +10,7 @@ function Footer() {
         Contact Us
       </a>
       <div className="footer-right">
-        <a>
-          <p>© 2021 RLRS. All rights reserved</p>
-        </a>
+        <p>© 2021 RLRS. All rights reserved</p>
       </div>
     </div>
   );

@@ -1,14 +1,5 @@
 import { React, useState } from "react";
-import {
-  Input,
-  Form,
-  FormControl,
-  FormLabel,
-  Stack,
-  Button,
-  Flex,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { useQuery } from "@apollo/client";
@@ -79,14 +70,15 @@ const Event = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      <form onSubmit={handleFormSubmit}>
-        <Stack
-          spacing={4}
-          p="1rem"
-          backgroundColor="whiteAlpha.900"
-          boxShadow="md"
-        >
-          {/* <SimpleGrid columns={2} spacing={10}>
+      <Box boxSize="sm" p="6" rounded="md">
+        <form onSubmit={handleFormSubmit}>
+          <Stack
+            spacing={4}
+            p="2rem 2rem"
+            backgroundColor="whiteAlpha.900"
+            boxShadow="md"
+          >
+            {/* <SimpleGrid columns={2} spacing={10}>
             <FormControl w="200px" id="first-name" isRequired>
               <FormLabel>First name</FormLabel>
               <Input placeholder="First name" />
@@ -96,36 +88,45 @@ const Event = () => {
               <Input placeholder="Last name" />
             </FormControl>
           </SimpleGrid> */}
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-error" : ""
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">Something went wrong...</span>}
-          </p>
-          <textarea
-            placeholder="Post an event..."
-            value={postText}
-            name={postText}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-          ></textarea>
+            <Text>Instructions...</Text>
+            <Text
+              className={`m-0 ${
+                characterCount === 280 || error ? "text-error" : ""
+              }`}
+            >
+              Character Count: {characterCount}/280
+              {error && <span className="ml-2">Something went wrong...</span>}
+            </Text>
+            <Textarea
+              border="1px"
+              borderColor="teal.500"
+              boxShadow="2xl"
+              rounded="md"
+              bg="white"
+              spacing={4}
+              m={2}
+              rounded="md"
+              placeholder="Post an event..."
+              value={postText}
+              name={postText}
+              className="form-input col-12 col-md-9"
+              onChange={handleChange}
+            ></Textarea>
 
-          <Button
-            borderRadius={0}
-            type="submit"
-            variant="solid"
-            colorScheme="teal"
-            width="full"
-          >
-            Submit
-          </Button>
-        </Stack>
-      </form>
-      <div
-        style={{ color: "navy", fontWeight: "bold", backgroundColor: "white" }}
-      >
+            <Button
+              borderRadius={0}
+              type="submit"
+              variant="solid"
+              colorScheme="teal"
+              width="full"
+              rounded="md"
+            >
+              Submit
+            </Button>
+          </Stack>
+        </form>
+      </Box>
+      <div style={{ backgroundColor: "white" }}>
         <Home />
       </div>
     </Flex>
