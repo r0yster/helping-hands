@@ -1,7 +1,6 @@
 # Helping Hands
 ![](./Assets/helpinghands.png)
 
-
 #### Table of Contents
 
 - [About](#About)
