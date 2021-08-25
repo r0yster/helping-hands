@@ -25,16 +25,16 @@ const resolvers = {
     },
     users: async () => {
       return User.find()
-        .select('-__v -password')
-        .populate('friends')
-        .populate('thoughts');
+        .select("-__v -password")
+        .populate("friends")
+        .populate("thoughts");
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
-        .select('-__v -password')
-        .populate('friends')
-    }  
+        .select("-__v -password")
+        .populate("friends");
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
