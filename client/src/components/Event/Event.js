@@ -86,7 +86,7 @@ const Event = () => {
           backgroundColor="whiteAlpha.900"
           boxShadow="md"
         >
-          <SimpleGrid columns={2} spacing={10}>
+          {/* <SimpleGrid columns={2} spacing={10}>
             <FormControl w="200px" id="first-name" isRequired>
               <FormLabel>First name</FormLabel>
               <Input placeholder="First name" />
@@ -95,7 +95,7 @@ const Event = () => {
               <FormLabel>Last name</FormLabel>
               <Input placeholder="Last name" />
             </FormControl>
-          </SimpleGrid>
+          </SimpleGrid> */}
           <p
             className={`m-0 ${
               characterCount === 280 || error ? "text-error" : ""

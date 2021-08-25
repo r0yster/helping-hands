@@ -10,6 +10,9 @@ import {
   Flex,
   SimpleGrid,
 } from "@chakra-ui/react";
+import CommentList from '../CommentList/CommentList';
+
+
 const EventList = ({posts, title }) => {
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
@@ -20,6 +23,7 @@ const EventList = ({posts, title }) => {
       <h3>{title}</h3>
       {posts &&
         posts.map(post => (
+           
           <div key={post._id} className="card mb-3">
             <p className="card-header">
               <Link
@@ -35,7 +39,6 @@ const EventList = ({posts, title }) => {
             <div className="card-body">
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
-           console.log({post.comment})
                 <p className="mb-0">
                    {post.commentCount} || Click to{' '}
                   {post.commentCount ? 'see' : 'start'} the discussion!
