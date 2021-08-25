@@ -1,12 +1,18 @@
 import React from "react";
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, operationName } from "@apollo/client";
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+  operationName,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../src/index.css";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
@@ -32,7 +38,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 function App() {
@@ -51,7 +57,7 @@ function App() {
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>

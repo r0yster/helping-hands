@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Input, Form, FormControl, FormLabel, Stack, Button, Flex, SimpleGrid, Box } from "@chakra-ui/react";
+import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
 
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
@@ -15,7 +15,7 @@ const Event = () => {
   const posts = data?.posts || [];
 
   const [characterCount, setCharacterCount] = useState(0);
-  
+
   const [addPost, { error }] = useMutation(ADD_POST, {
     variables: { addPostText: postText },
 
@@ -70,50 +70,68 @@ const Event = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      <form onSubmit={handleFormSubmit}>
-        <Stack
-          spacing={4}
-          p="1rem"
-          backgroundColor="whiteAlpha.900"
-          boxShadow="md"
-        >
-          <p className={`m-0 ${
-            characterCount === 280 || error ? "text-error" : ""
-          }`}>
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">Something went wrong...</span>}
-          </p>
-          <textarea
-            placeholder="Post an event..."
-            value={postText}
-            name={postText}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-          ></textarea>
-
-          <Button
-            borderRadius={0}
-            type="submit"
-            variant="solid"
-            colorScheme="teal"
-            width="full"
+      <Box boxSize="sm" rounded="md">
+        <form onSubmit={handleFormSubmit}>
+          <Stack
+            rounded="md"
+            spacing={4}
+            p="2rem 2rem"
+            backgroundColor="whiteAlpha.900"
+            boxShadow="md"
           >
-            Submit
-          </Button>
-        </Stack>
-      </form>
-      
-      <div style={{ color: "navy", fontWeight: "bold", backgroundColor: "white" }}>
-        <div className="flex-row justify-space-between">
-          <div className="col-12 mb-3">
-            {loading ? (
-              <div>Loading...</div>
-            ) : (
-              <EventList posts={posts} title="See Events List Below:" />
-            )}
+            <Text fontWeight="semibold">
+              Enter your event time, location and number of volunteers needed
+            </Text>
+            <Text
+              className={`m-0 ${
+                characterCount === 280 || error ? "text-error" : ""
+              }`}
+            >
+              Character Count: {characterCount}/280
+              {error && <span className="ml-2">Something went wrong...</span>}
+            </Text>
+            <Textarea
+              border="1px"
+              borderColor="teal.500"
+              boxShadow="2xl"
+              rounded="md"
+              bg="white"
+              spacing={4}
+              m={2}
+              rounded="md"
+              placeholder="Post an event..."
+              value={postText}
+              name={postText}
+              className="form-input col-12 col-md-9"
+              onChange={handleChange}
+            ></Textarea>
+
+            <Button
+              borderRadius={0}
+              type="submit"
+              variant="solid"
+              colorScheme="teal"
+              width="full"
+              rounded="md"
+            >
+              Submit
+            </Button>
+          </Stack>
+        </form>
+        <div>
+          <div className="flex-row justify-space-between">
+            <div className="col-12 mb-3">
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
+                <Box mt={100}>
+                  <EventList posts={posts} title="See Events List Below:" />
+                </Box>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Box>
     </Flex>
   );
 };

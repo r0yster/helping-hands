@@ -33,7 +33,7 @@ function Aboutus() {
         rounded="md"
         bg="white"
         spacing={4}
-        backgroundColor="whi#367e7fpha.900"
+        backgroundColor="whiteAlpha.900"
         flexDir="column"
         mb="8rem"
         justifyContent="center"
