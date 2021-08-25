@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import {
+  Input,
+  Form,
+  FormControl,
+  FormLabel,
+  Stack,
+  Button,
+  Flex,
+  SimpleGrid,
+} from "@chakra-ui/react";
 const EventList = ({posts, title }) => {
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
@@ -26,12 +35,15 @@ const EventList = ({posts, title }) => {
             <div className="card-body">
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
+                <p>{post.comments.commentBody}</p>
                 <p className="mb-0">
-                  Comments: {post.commentCount} || Click to{' '}
+                   {post.commentCount} || Click to{' '}
                   {post.commentCount ? 'see' : 'start'} the discussion!
                 </p>
               </Link>
             </div>
+            <p mb="8px">Comment: </p>
+        <Input placeholder="Here is a sample placeholder" size="sm" /> 
           </div>
         ))}
     </div>

@@ -123,8 +123,7 @@ const Event = () => {
             Submit
           </Button>
 
-          {/* <Text mb="8px">Comment: </Text>
-        <Input placeholder="Here is a sample placeholder" size="sm" /> */}
+      
         </Stack>
       </form>
       <div
