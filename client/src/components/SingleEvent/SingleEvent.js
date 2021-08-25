@@ -1,12 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+
+import CommentList from '../CommentList/CommentList';
+
+import Auth from "../../utils/auth";
 import { useQuery } from '@apollo/client';
 import { QUERY_POST } from '../../utils/queries';
-// import CommentList from '../components/ReactionList';
+
+
 const SinglePost = props => {
   const { id: postId } = useParams();
 
-const { loading, data } = useQuery(QUERY_POST, {
+  const { loading, data } = useQuery(QUERY_POST, {
   variables: { postId: postId }
 });
 
@@ -30,7 +35,8 @@ if (loading) {
       </div>
     </div>
   
-    {/* {post.reactionCount > 0 && <ReactionList reactions={post.reactions} />} */}
+    {post.commentCount > 0 && <CommentList comments={post.comments} />} 
+    
   </div>
   );
 };
