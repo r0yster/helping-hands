@@ -16,6 +16,7 @@ import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
 import Header from "./components/Header/Header";
+import SinglePost from "./components/SingleEvent/SingleEvent";
 import Footer from "./components/Footer/Footer";
 
 const httpLink = createHttpLink({
@@ -48,7 +49,10 @@ function App() {
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />
             <Route exact path="/volunteer" component={Volunteer} />
+            {/* <Route exact path="/aboutus" component={Aboutus} /> */}
+            <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
+            {/* <Route exact path = "/profile" component = {Profile} /> */}
           </Switch>
           <Footer />
         </ChakraProvider>
