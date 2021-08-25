@@ -6,7 +6,16 @@ import CommentList from '../CommentList/CommentList';
 import Auth from "../../utils/auth";
 import { useQuery } from '@apollo/client';
 import { QUERY_POST } from '../../utils/queries';
-
+import {
+  Input,
+  Form,
+  FormControl,
+  FormLabel,
+  Stack,
+  Button,
+  Flex,
+  SimpleGrid,
+} from "@chakra-ui/react";
 
 const SinglePost = props => {
   const { id: postId } = useParams();
@@ -14,7 +23,7 @@ const SinglePost = props => {
   const { loading, data } = useQuery(QUERY_POST, {
   variables: { postId: postId }
 });
-
+//Data passed to post variable 
 const post = data?.post || {};
 
 if (loading) {
