@@ -12,7 +12,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../src/index.css";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
@@ -48,7 +48,7 @@ function App() {
         <ChakraProvider>
           <Header />
           <Switch>
-            <Route exact path="/" component={Aboutus} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />
@@ -57,7 +57,7 @@ function App() {
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>
