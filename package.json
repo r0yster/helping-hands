@@ -17,6 +17,10 @@
     "nodemon": "^2.0.12"
   },
   "dependencies": {
-    "@emotion/styled": "^11.3.0"
+    "@emotion/styled": "^11.3.0",
+    "i": "^0.3.6"
+  },
+  "engines": {
+    "node": "14.16.1"
   }
 }
