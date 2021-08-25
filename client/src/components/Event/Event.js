@@ -12,7 +12,7 @@ import {
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { useQuery } from "@apollo/client";
-import Home from "../Home/home";
+import Home from "../Home/Home";
 
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
