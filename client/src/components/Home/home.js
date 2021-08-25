@@ -2,25 +2,46 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../../utils/queries';
 import EventList from '../EventList/EventList';
+import Aboutus from '../Aboutus/Aboutus';
+import Auth from "../../utils/auth";
+import Event from '../Event/Event';
+
+
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
   console.log(posts);
+
+  const loggedIn = Auth.loggedIn();
+
+
+  // return (
+  //   <main>
+  //   <div className="flex-row justify-space-between">
+  //     <div className="col-12 mb-3">
+  //       {loading ? (
+  //         <div>Loading...</div>
+  //       ) : (
+  //         <EventList posts={posts} title="Events Listed:" />
+  //       )}
+  //     </div>
+  //   </div>
+  // </main>
+  // );
+
   return (
     <main>
-    <div className="flex-row justify-space-between">
-      <div className="col-12 mb-3">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <EventList posts={posts} title="Events Listed:" />
-        )}
+      <div className="flex-row justify-space-between">
+        {loggedIn ? (
+          <div className="col-12 col-lg-3 mb-3">
+            <Event />
+          </div>
+        ) : <Aboutus />}
       </div>
-    </div>
-  </main>
+    </main>
   );
-
 };
+
 
 export default Home;

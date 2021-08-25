@@ -42,7 +42,7 @@ function App() {
         <ChakraProvider>
           <Header />
           <Switch>
-            <Route exact path="/" component={Aboutus} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/event" component={Event} />

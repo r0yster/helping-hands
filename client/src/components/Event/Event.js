@@ -1,18 +1,9 @@
 import { React, useState } from "react";
-import {
-  Input,
-  Form,
-  FormControl,
-  FormLabel,
-  Stack,
-  Button,
-  Flex,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Input, Form, FormControl, FormLabel, Stack, Button, Flex, SimpleGrid } from "@chakra-ui/react";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { useQuery } from "@apollo/client";
-import Home from "../Home/Home";
+import EventList from "../EventList/EventList";
 
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
@@ -27,7 +18,6 @@ const Event = () => {
     variables: { addPostText: postText },
 
     update(cache, { data: { addPost } }) {
-      // console.log("helloworld");
       try {
         // update posts array's cache
         // could potentially not exist yet, so wrap in a try/catch
@@ -54,7 +44,6 @@ const Event = () => {
 
     try {
       // add  to database
-
       await addPost({
         variables: { postText },
       });
@@ -86,16 +75,6 @@ const Event = () => {
           backgroundColor="whiteAlpha.900"
           boxShadow="md"
         >
-          {/* <SimpleGrid columns={2} spacing={10}>
-            <FormControl w="200px" id="first-name" isRequired>
-              <FormLabel>First name</FormLabel>
-              <Input placeholder="First name" />
-            </FormControl>
-            <FormControl id="first-name" isRequired>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
-          </SimpleGrid> */}
           <p
             className={`m-0 ${
               characterCount === 280 || error ? "text-error" : ""
@@ -123,10 +102,16 @@ const Event = () => {
           </Button>
         </Stack>
       </form>
-      <div
-        style={{ color: "navy", fontWeight: "bold", backgroundColor: "white" }}
-      >
-        <Home />
+      <div style={{ color: "navy", fontWeight: "bold", backgroundColor: "white" }}>
+              <div className="flex-row justify-space-between">
+        <div className="col-12 mb-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+          <EventList posts={posts} title="Events Listed:" />
+        )}
+      </div>
+    </div>
       </div>
     </Flex>
   );

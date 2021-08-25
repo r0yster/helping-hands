@@ -36,8 +36,8 @@ if (loading) {
       <p className="card-header">
         <span style={{ fontWeight: 700 }} className="text-light">
           {post.username}
-        </span>{' '}
-        post on {post.createdAt}
+        </span>
+        's event on {post.createdAt}
       </p>
       <div className="card-body">
         <p>{post.postText}</p>
