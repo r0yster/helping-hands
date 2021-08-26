@@ -5,7 +5,7 @@ import CommentList from "../CommentList/CommentList";
 
 const EventList = ({ posts, title }) => {
   if (!posts.length) {
-    return <h3>No Posts Yet</h3>;
+    return <Heading>No Posts Yet</Heading>;
   }
 
   return (
@@ -28,15 +28,16 @@ const EventList = ({ posts, title }) => {
           pt="15%"
           p="2"
         >
-          <Heading as="h4" size="md">
+          <Heading as="h4" size="md" fontWeight="semibold" textAlign="center">
             {title}
           </Heading>
           {posts &&
             posts.map((post) => (
               <Box key={post._id}>
                 <Text
+                  backgroundColor="whiteAlpha.900"
                   border="1px"
-                  borderColor="teal.500"
+                  borderColor="gray.300"
                   boxShadow="1xl"
                   rounded="md"
                   m={2}
@@ -44,7 +45,7 @@ const EventList = ({ posts, title }) => {
                 >
                   <Link
                     to={`/profile/${post.username}`}
-                    style={{ fontWeight: 700 }}
+                    style={{ fontWeight: 500 }}
                     className="text-light"
                   >
                     {post.username}
@@ -56,11 +57,10 @@ const EventList = ({ posts, title }) => {
                     <Text
                       backgroundColor="whiteAlpha.900"
                       border="1px"
-                      borderColor="teal.500"
+                      borderColor="gray.300"
                       boxShadow="1xl"
                       p="6"
                       rounded="md"
-                      bg="white"
                       spacing={4}
                       m={2}
                     >
@@ -68,7 +68,7 @@ const EventList = ({ posts, title }) => {
                     </Text>
                     <Text
                       borderBottom="1px"
-                      borderBottomColor="teal.500"
+                      borderBottomColor="gray.300"
                       m={2}
                       p="2"
                     >
