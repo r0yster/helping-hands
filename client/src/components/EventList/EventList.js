@@ -10,11 +10,13 @@ const EventList = ({ posts, title }) => {
 
   return (
     <Flex
-      flexDirection="column"
+      ml="550"
+      p="4"
+      flexDirection="row"
       rounded="md"
-      width="100wh"
+      width="100%"
       height="100vh"
-      justifyContent="center"
+      // justifyContent="center"
       alignItems="center"
     >
       <Box mt={100}>
@@ -22,7 +24,7 @@ const EventList = ({ posts, title }) => {
           backgroundColor="whiteAlpha.900"
           boxShadow="md"
           rounded="md"
-          mt={25}
+          mb="215"
           pt="15%"
           p="2"
         >
