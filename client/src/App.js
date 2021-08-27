@@ -23,7 +23,7 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
