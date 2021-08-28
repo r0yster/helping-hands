@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 import {
   Flex,
   Heading,
@@ -18,14 +18,12 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-// import backgroundImage from "../images/background.jpg";
-import "./LoginForm.css";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
   const [showPassword, setShowPassword] = useState(false);
@@ -41,12 +39,12 @@ const LoginForm = () => {
     });
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const { data } = await login({
-        variables: { ...formState }
+        variables: { ...formState },
       });
 
       Auth.login(data.login.token);
@@ -93,7 +91,12 @@ const LoginForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" name="email" placeholder="email address" onChange={handleChange}/>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="email address"
+                    onChange={handleChange}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -125,6 +128,7 @@ const LoginForm = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                rounded="md"
               >
                 Login
               </Button>

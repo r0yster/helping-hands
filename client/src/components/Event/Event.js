@@ -10,8 +10,6 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import "./Event.css";
-
 const Event = () => {
   return (
     <Flex
@@ -30,15 +28,16 @@ const Event = () => {
         p="1rem"
         backgroundColor="whiteAlpha.900"
         boxShadow="md"
+        rounded="md"
       >
         <SimpleGrid columns={2} spacing={10}>
           <FormControl w="200px" id="first-name" isRequired>
-            <FormLabel>First name</FormLabel>
-            <Input placeholder="First name" />
+            <FormLabel>First Name</FormLabel>
+            <Input placeholder="First Name" />
           </FormControl>
           <FormControl id="first-name" isRequired>
-            <FormLabel>Last name</FormLabel>
-            <Input placeholder="Last name" />
+            <FormLabel>Last Name</FormLabel>
+            <Input placeholder="Last Name" />
           </FormControl>
         </SimpleGrid>
         <Input placeholder="Post an event" size="lg" />
@@ -48,27 +47,19 @@ const Event = () => {
           variant="solid"
           colorScheme="teal"
           width="full"
+          rounded="md"
         >
           Submit
         </Button>
         <Text mb="8px">Comment: </Text>
-        <Input placeholder="Here is a sample placeholder" size="sm" />
+        <Input
+          placeholder="Here is a sample placeholder"
+          size="sm"
+          rounded="md"
+        />
       </Stack>
     </Flex>
   );
 };
 
 export default Event;
-
-// import {
-//   FormControl,
-//   FormLabel,
-//   FormErrorMessage,
-//   FormHelperText,
-// } from "@chakra-ui/react"
-
-// <FormControl id="email">
-//   <FormLabel>Email address</FormLabel>
-//   <Input type="email" />
-//   <FormHelperText>We'll never share your email.</FormHelperText>
-// </FormControl>
