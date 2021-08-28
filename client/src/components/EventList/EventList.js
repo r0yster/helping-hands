@@ -59,7 +59,7 @@ const EventList = ({ posts, title }) => {
                       border="1px"
                       borderColor="gray.300"
                       boxShadow="1xl"
-                      p="6"
+                      p="2"
                       rounded="md"
                       spacing={4}
                       m={2}

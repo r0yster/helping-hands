@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
-import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
+import { Button, Text, Textarea } from "@chakra-ui/react";
 const CommentForm = ({ postId }) => {
   const [commentBody, setBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);

@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
-
+import "./Event.css";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
@@ -94,7 +94,6 @@ const Event = () => {
               bg="white"
               spacing={4}
               m={2}
-              rounded="md"
               placeholder="Post an event..."
               value={postText}
               name={postText}
