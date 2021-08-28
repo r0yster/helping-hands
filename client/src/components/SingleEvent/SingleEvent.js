@@ -4,21 +4,11 @@ import { useParams } from "react-router-dom";
 import CommentList from "../CommentList/CommentList";
 import CommentForm from "../CommentForm/CommentForm";
 
-import Auth from "../../utils/auth";
+// import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_POST } from "../../utils/queries";
 
-import {
-  Input,
-  Form,
-  FormControl,
-  FormLabel,
-  Stack,
-  Button,
-  Flex,
-  SimpleGrid,
-  Text,
-} from "@chakra-ui/react";
+import { Stack, Flex, Text } from "@chakra-ui/react";
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();

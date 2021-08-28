@@ -1,14 +1,5 @@
 import { React, useState } from "react";
-import {
-  Stack,
-  Button,
-  Flex,
-  Box,
-  Text,
-  Textarea,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
+import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
 
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
@@ -30,8 +21,6 @@ const Event = () => {
 
     update(cache, { data: { addPost } }) {
       try {
-        // update posts array's cache
-        // could potentially not exist yet, so wrap in a try/catch
         const { posts } = cache.readQuery({ query: QUERY_POSTS });
         cache.writeQuery({
           query: QUERY_POSTS,
@@ -54,12 +43,10 @@ const Event = () => {
     event.preventDefault();
 
     try {
-      // add  to database
       await addPost({
         variables: { postText },
       });
 
-      // clear form value
       setText("");
       setCharacterCount(0);
     } catch (e) {
@@ -73,7 +60,6 @@ const Event = () => {
       flexDirection="row"
       width="100wh"
       height="100vh"
-      // justifyContent="center"
       alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"

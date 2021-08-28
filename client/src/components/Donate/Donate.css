@@ -191,9 +191,3 @@ button {
   line-height: 1.6em;
   text-align: center;
 }
-
-.ResetButton {
-  border: 0;
-  cursor: pointer;
-  background: transparent;
-}

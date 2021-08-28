@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input, Flex, Box, Text, Heading, Stack } from "@chakra-ui/react";
-import CommentList from "../CommentList/CommentList";
+import { Flex, Box, Text, Heading, Stack } from "@chakra-ui/react";
+// import CommentList from "../CommentList/CommentList";
 
 const EventList = ({ posts, title }) => {
   if (!posts.length) {
