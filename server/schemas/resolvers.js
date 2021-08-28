@@ -1,4 +1,4 @@
-const { User, Post, Comment } = require("../models");
+const { User, Post, Volunteer } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -45,6 +45,11 @@ const resolvers = {
 
       return { token, user };
     },
+    // addVolunteer: async (parent, args) => {
+    //   const volunteer = await Volunteer.create(args);
+      
+      
+    // }
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

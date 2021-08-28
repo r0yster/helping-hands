@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.3.0",
+    "greenlock": "^4.0.4",
     "i": "^0.3.6"
   },
   "engines": {
