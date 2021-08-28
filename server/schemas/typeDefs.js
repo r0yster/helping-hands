@@ -10,6 +10,8 @@ const typeDefs = gql`
     posts: [Post]
   }
 
+
+
   type Post {
     _id: ID
     postText: String
