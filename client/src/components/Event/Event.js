@@ -1,5 +1,14 @@
 import { React, useState } from "react";
-import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
+import {
+  Stack,
+  Button,
+  Flex,
+  Box,
+  Text,
+  Textarea,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
@@ -60,17 +69,18 @@ const Event = () => {
 
   return (
     <Flex
-      flexDirection="column"
+      p="4"
+      flexDirection="row"
       width="100wh"
       height="100vh"
-      justifyContent="center"
+      // justifyContent="center"
       alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      <Box boxSize="sm" rounded="md">
+      <Box boxSize="sm" rounded="md" ml="150px">
         <form onSubmit={handleFormSubmit}>
           <Stack
             rounded="md"
@@ -92,7 +102,7 @@ const Event = () => {
             </Text>
             <Textarea
               border="1px"
-              borderColor="teal.500"
+              borderColor="gray.300"
               boxShadow="2xl"
               rounded="md"
               bg="white"
@@ -118,6 +128,7 @@ const Event = () => {
             </Button>
           </Stack>
         </form>
+
         <div>
           <div className="flex-row justify-space-between">
             <div className="col-12 mb-3">
