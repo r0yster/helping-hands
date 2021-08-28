@@ -63,7 +63,7 @@ const Volunteer = () => {
           <Heading color="#367e7f">Volunteer</Heading>
         </Flex>
 
-        <Box minW={{ base: "90%", md: "468px" }}>
+        <Box minW={{ base: "90%", md: "375px" }}>
           <form onSubmit={handleFormSubmit}>
             <FormControl id="first-name" isRequired>
               <FormLabel>First name</FormLabel>
@@ -87,7 +87,6 @@ const Volunteer = () => {
                 value={email}
                 onChange={handleChange}
                 placeholder="Email"
-                size="lg"
               />
             </FormControl>{" "}
             <FormControl id="phone-number" isRequired mb={2}>
@@ -96,7 +95,6 @@ const Volunteer = () => {
                 value={phoneNumber}
                 onChange={handleChange}
                 placeholder="Phone number"
-                size="lg"
               />
             </FormControl>
             <Button

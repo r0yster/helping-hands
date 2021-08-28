@@ -64,7 +64,7 @@ function Aboutus() {
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {" "}
-            <Img src={source} alt="helping-hands icon" boxSize="150px" />
+            <Img src={source} alt="helping-hands icon" boxSize="150px" ml={5} />
           </Flex>
 
           <Box>
