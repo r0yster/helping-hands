@@ -50,6 +50,7 @@ const Volunteer = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      opacity="75%"
     >
       <Stack
         spacing={4}
