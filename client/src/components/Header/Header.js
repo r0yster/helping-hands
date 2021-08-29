@@ -4,6 +4,16 @@ import Auth from "../../utils/auth";
 
 import "./Header.css";
 
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from "@chakra-ui/react";
+
+import { HamburgerIcon } from "@chakra-ui/icons";
+
 function Header() {
   const logout = (event) => {
     event.preventDefault();
@@ -17,25 +27,50 @@ function Header() {
         <Link className="active" to="/">
           Helping Hands
         </Link>
+
         <div className="topnav-right">
-          {loggedIn ? (
-            <>
-              <Link to="/Event">Events</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
-          <Link to="/Volunteer">Volunteer</Link>
-          <Link to="/donate">Donate</Link>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              icon={<HamburgerIcon />}
+              variant="outline"
+            />
+            <MenuList borderColor="none">
+              {loggedIn ? (
+                <>
+                  <MenuItem>
+                    <Link to="/Event">Events</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link href="/" onClick={logout}>
+                      Logout
+                    </Link>
+                  </MenuItem>
+                </>
+              ) : (
+                <>
+                  <MenuItem>
+                    <Link to="/login">Login</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="/signup">Signup</Link>
+                  </MenuItem>
+                </>
+              )}
+
+              <MenuItem>
+                <Link to="/Volunteer">Volunteer</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/donate">Donate</Link>
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </div>
       </div>
     </header>
   );
 }
+
 export default Header;

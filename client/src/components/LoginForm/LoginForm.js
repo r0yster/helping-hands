@@ -66,6 +66,7 @@ const LoginForm = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       rounded="md"
+      opacity="75%"
     >
       <Stack
         flexDir="column"

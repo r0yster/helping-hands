@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input, Flex, Box, Text, Heading, Stack } from "@chakra-ui/react";
-import CommentList from "../CommentList/CommentList";
+import { Flex, Box, Text, Heading, Stack } from "@chakra-ui/react";
+// import CommentList from "../CommentList/CommentList";
 
 const EventList = ({ posts, title }) => {
   if (!posts.length) {
@@ -59,7 +59,7 @@ const EventList = ({ posts, title }) => {
                       border="1px"
                       borderColor="gray.300"
                       boxShadow="1xl"
-                      p="6"
+                      p="2"
                       rounded="md"
                       spacing={4}
                       m={2}
