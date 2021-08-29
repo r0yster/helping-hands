@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
-
+import "./Event.css";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
@@ -21,8 +21,6 @@ const Event = () => {
 
     update(cache, { data: { addPost } }) {
       try {
-        // update posts array's cache
-        // could potentially not exist yet, so wrap in a try/catch
         const { posts } = cache.readQuery({ query: QUERY_POSTS });
         cache.writeQuery({
           query: QUERY_POSTS,
@@ -45,12 +43,10 @@ const Event = () => {
     event.preventDefault();
 
     try {
-      // add  to database
       await addPost({
         variables: { postText },
       });
 
-      // clear form value
       setText("");
       setCharacterCount(0);
     } catch (e) {
@@ -60,17 +56,17 @@ const Event = () => {
 
   return (
     <Flex
-      flexDirection="column"
+      p="4"
+      flexDirection="row"
       width="100wh"
       height="100vh"
-      justifyContent="center"
       alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      <Box boxSize="sm" rounded="md">
+      <Box boxSize="sm" rounded="md" ml="150px">
         <form onSubmit={handleFormSubmit}>
           <Stack
             rounded="md"
@@ -92,13 +88,12 @@ const Event = () => {
             </Text>
             <Textarea
               border="1px"
-              borderColor="teal.500"
+              borderColor="gray.300"
               boxShadow="2xl"
               rounded="md"
               bg="white"
               spacing={4}
               m={2}
-              rounded="md"
               placeholder="Post an event..."
               value={postText}
               name={postText}
@@ -118,6 +113,7 @@ const Event = () => {
             </Button>
           </Stack>
         </form>
+
         <div>
           <div className="flex-row justify-space-between">
             <div className="col-12 mb-3">

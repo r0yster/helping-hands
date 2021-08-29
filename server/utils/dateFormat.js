@@ -5,13 +5,13 @@ const addDateSuffix = (date) => {
   const lastChar = dateStr.charAt(dateStr.length - 1);
 
   if (lastChar === "1" && dateStr !== "11") {
-    dateStr = `${dateStr}st`;
+    dateStr = `${dateStr}`;
   } else if (lastChar === "2" && dateStr !== "12") {
-    dateStr = `${dateStr}nd`;
+    dateStr = `${dateStr}`;
   } else if (lastChar === "3" && dateStr !== "13") {
-    dateStr = `${dateStr}rd`;
+    dateStr = `${dateStr}`;
   } else {
-    dateStr = `${dateStr}th`;
+    dateStr = `${dateStr}`;
   }
 
   return dateStr;
@@ -24,18 +24,18 @@ module.exports = (
 ) => {
   // create month object
   const months = {
-    0: monthLength === "short" ? "Jan" : "January",
-    1: monthLength === "short" ? "Feb" : "February",
-    2: monthLength === "short" ? "Mar" : "March",
-    3: monthLength === "short" ? "Apr" : "April",
-    4: monthLength === "short" ? "May" : "May",
-    5: monthLength === "short" ? "Jun" : "June",
-    6: monthLength === "short" ? "Jul" : "July",
-    7: monthLength === "short" ? "Aug" : "August",
-    8: monthLength === "short" ? "Sep" : "September",
-    9: monthLength === "short" ? "Oct" : "October",
-    10: monthLength === "short" ? "Nov" : "November",
-    11: monthLength === "short" ? "Dec" : "December",
+    0: monthLength === "short" ? "01" : "January",
+    1: monthLength === "short" ? "02" : "February",
+    2: monthLength === "short" ? "03" : "March",
+    3: monthLength === "short" ? "04" : "April",
+    4: monthLength === "short" ? "05" : "May",
+    5: monthLength === "short" ? "06" : "June",
+    6: monthLength === "short" ? "07" : "July",
+    7: monthLength === "short" ? "08" : "August",
+    8: monthLength === "short" ? "09" : "September",
+    9: monthLength === "short" ? "10" : "October",
+    10: monthLength === "short" ? "11" : "November",
+    11: monthLength === "short" ? "12" : "December",
   };
 
   const dateObj = new Date(timestamp);

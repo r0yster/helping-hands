@@ -21,6 +21,8 @@ function Header() {
           {loggedIn ? (
             <>
               <Link to="/Event">Events</Link>
+              <Link to="/Volunteer">Volunteer</Link>
+              <Link to="/donate">Donate</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
@@ -29,10 +31,12 @@ function Header() {
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <Link to="/Volunteer">Volunteer</Link>
+              <Link to="/donate">Donate</Link>
             </>
           )}
-          <Link to="/Volunteer">Volunteer</Link>
-          <Link to="/donate">Donate</Link>
+          {/* <Link to="/Volunteer">Volunteer</Link>
+          <Link to="/donate">Donate</Link> */}
         </div>
       </div>
     </header>

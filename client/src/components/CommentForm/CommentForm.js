@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
-import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
+import { Button, Text, Textarea } from "@chakra-ui/react";
 const CommentForm = ({ postId }) => {
   const [commentBody, setBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
@@ -34,7 +34,7 @@ const CommentForm = ({ postId }) => {
     <div>
       <Text
         border="1px"
-        borderColor="teal.500"
+        borderColor="gray.300"
         boxShadow="1xl"
         rounded="md"
         m={2}
@@ -50,7 +50,7 @@ const CommentForm = ({ postId }) => {
       >
         <Textarea
           border="1px"
-          borderColor="teal.500"
+          borderColor="gray.300"
           boxShadow="2xl"
           rounded="md"
           bg="white"

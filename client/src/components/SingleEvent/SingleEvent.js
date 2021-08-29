@@ -4,21 +4,11 @@ import { useParams } from "react-router-dom";
 import CommentList from "../CommentList/CommentList";
 import CommentForm from "../CommentForm/CommentForm";
 
-import Auth from "../../utils/auth";
+// import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_POST } from "../../utils/queries";
 
-import {
-  Input,
-  Form,
-  FormControl,
-  FormLabel,
-  Stack,
-  Button,
-  Flex,
-  SimpleGrid,
-  Text,
-} from "@chakra-ui/react";
+import { Stack, Flex, Text } from "@chakra-ui/react";
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
@@ -45,6 +35,7 @@ const SinglePost = (props) => {
       backgroundSize="cover"
     >
       <Stack
+        rounded="md"
         spacing={4}
         p="1rem"
         backgroundColor="whiteAlpha.900"
@@ -54,18 +45,18 @@ const SinglePost = (props) => {
           <div className="card mb-3">
             <Text
               borderBottom="1px"
-              borderBottomColor="teal.500"
+              borderBottomColor="gray.300"
               className="card-header"
             >
-              <span style={{ fontWeight: 700 }} className="text-light">
+              <span style={{ fontWeight: 500 }} className="text-light">
                 {post.username}
               </span>
-              's event on {post.createdAt}
+              's Event on {post.createdAt}
             </Text>
             <div className="card-body">
               <Text
                 border="1px"
-                borderColor="teal.500"
+                borderColor="gray.300"
                 rounded="md"
                 bg="white"
                 spacing={4}
