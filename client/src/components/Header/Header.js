@@ -4,6 +4,22 @@ import Auth from "../../utils/auth";
 
 import "./Header.css";
 
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuIcon,
+  MenuCommand,
+  MenuDivider,
+  IconButton
+} from "@chakra-ui/react"
+
+import { HamburgerIcon } from '@chakra-ui/icons'
+
 
 function Header() {
   const logout = (event) => {
@@ -21,39 +37,50 @@ function Header() {
         </Link>
 
         <div className="topnav-right">
-          {loggedIn ? (
+  
+  <Menu>
+  <MenuButton
+    as={IconButton}
+    aria-label="Options"
+    icon={<HamburgerIcon />}
+    variant="outline"
+   
+  />
+  <MenuList
+  borderColor="none">
+  {loggedIn ? (
             <>
+              <MenuItem>
               <Link to="/Event">Events</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
+              </MenuItem>
             </>
           ) : (
             <>
+            <MenuItem>
               <Link to="/login">Login</Link>
+            </MenuItem>
+            <MenuItem>  
               <Link to="/signup">Signup</Link>
+            </MenuItem>  
             </>
           )}
-          <Link to="/Volunteer">Volunteer</Link>
-          <Link to="/donate">Donate</Link>
-        </div>
-          {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-          </a>
+   
+    <MenuItem >
+      <Link to="/Volunteer">Volunteer</Link>
+    </MenuItem>
+    <MenuItem >
+      <Link to="/donate">Donate</Link>
+    </MenuItem>
+
+  </MenuList>
+</Menu>
+   </div>
       </div>
     </header>
   );
-
-  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
 }
 
 

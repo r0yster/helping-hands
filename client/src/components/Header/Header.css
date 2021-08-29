@@ -1,65 +1,77 @@
 
 
-/* .topnav {
+ /* .topnav {
   overflow: hidden;
   background-color: #367e7f;
-}
 
-.topnav a {
+} */
+
+/* .topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 25px;
-}
-
-.topnav a:hover {
-  color: #580749;
-}
-
-.topnav-right {
-  float: right;
 } */
+
+/* .topnav a:hover {
+  color: #580749;
+}  */
+
+/* .topnav-right {
+  float: right;
+}   */
 
 /* Style the navigation menu */
 .topnav {
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #367e7f;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+ 
 }
+
+
 
 /* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
+/* .topnav #myLinks {
   display: none;
-}
+}  */
 
 /* Style navigation menu links */
-.topnav a {
+/* .topnav a {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   display: block;
-}
+}  */
 
 /* Style the hamburger menu */
-.topnav a.icon {
-  background: #D47D74;
-  display: block;
+ .topnav-right {
+  background: #D78077;
+  border-color: #D78077;
+  /* display: block;
   position: absolute;
   right: 0;
-  top: 0;
-}
+  top: 0; */
+}  
 
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+#menu-button-4 {
+  border-color: #D78077;
+ background: #D78077;
+ border-radius: 0px;
+ 
 }
 
 /* Style the active link (or home/logo) */
-.active {
+ .active {
   background-color: #AB4B8B;
   color: white;
-}
+  padding: 10px;
+} 
+
+/* .button {
+  background-color: #D78077;
+} */
