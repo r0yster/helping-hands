@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Text, Stack } from "@chakra-ui/react";
-import { useMutation } from "@apollo/client";
-import { ADD_COMMENT } from "../../utils/mutations";
 
 const CommentList = ({ comments }) => {
   return (

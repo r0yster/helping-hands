@@ -32,7 +32,7 @@ const Volunteer = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    alert("Thank You for volunteering, someone will contact you!!");
+    alert("Thank you for volunteering, someone will contact you soon.");
     setFirstName("");
     setLastName("");
     setEmail("");

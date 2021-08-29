@@ -24,7 +24,7 @@ const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const [showPassword, setShowPassword] = useState(false);
 

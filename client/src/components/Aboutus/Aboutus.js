@@ -3,8 +3,6 @@ import React from "react";
 import source from "../images/logo3.png";
 
 import Auth from "../../utils/auth";
-import { useQuery } from "@apollo/client";
-import { QUERY_POSTS, QUERY_ME_BASIC } from "../../utils/queries";
 
 function Aboutus() {
   const loggedIn = Auth.loggedIn();
