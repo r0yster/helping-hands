@@ -13,7 +13,7 @@ import "../src/index.css";
 
 import Header from "./components/Header/Header";
 // import Footer from "./components/Footer/Footer";
-import Home from "./components/Home/home";
+import Home from "./components/Home/Home";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SinglePost from "./components/SingleEvent/SingleEvent";
@@ -21,7 +21,7 @@ import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Aboutus from "./components/Aboutus/Aboutus";
 import Donate from "./components/Donate/Donate";
-
+import Footer from "./components/Footer/Footer";
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
@@ -57,7 +57,7 @@ function App() {
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>

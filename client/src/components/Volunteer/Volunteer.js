@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
+
 // import { ADD_VOLUNTEER } from "../../utils/mutations";
 import {
   Input,
@@ -8,8 +9,8 @@ import {
   Stack,
   Button,
   Flex,
-  SimpleGrid,
   Heading,
+  Box,
 } from "@chakra-ui/react";
 
 const Volunteer = () => {
@@ -26,7 +27,6 @@ const Volunteer = () => {
     setLastName(event.target.value);
     setEmail(event.target.value);
     setPhoneNumber(event.target.value);
-
   };
 
   const handleFormSubmit = async (event) => {
@@ -63,31 +63,52 @@ const Volunteer = () => {
           <Heading color="#367e7f">Volunteer</Heading>
         </Flex>
 
-        <SimpleGrid columns={2} spacing={10}>
-            <form onSubmit={handleFormSubmit}>
-            <FormControl w="200px" id="first-name" isRequired>
+        <Box minW={{ base: "90%", md: "375px" }}>
+          <form onSubmit={handleFormSubmit}>
+            <FormControl id="first-name" isRequired>
               <FormLabel>First name</FormLabel>
-              <Input value={firstName} onChange={handleChange} placeholder="First name" />
+              <Input
+                value={firstName}
+                onChange={handleChange}
+                placeholder="First name"
+              />
             </FormControl>
             <FormControl id="first-name" isRequired>
               <FormLabel>Last name</FormLabel>
-              <Input value={lastName} onChange={handleChange} placeholder="Last name" />
+              <Input
+                value={lastName}
+                onChange={handleChange}
+                placeholder="Last name"
+              />
             </FormControl>
-            
-          <Input value={email} onChange={handleChange} placeholder="Email" size="lg" />
-          <Input value={phoneNumber} onChange={handleChange} placeholder="Phone number" size="lg" />
-          <Button
-            borderRadius={0}
-            type="submit"
-            variant="solid"
-            colorScheme="teal"
-            width="full"
-            rounded="md"
-          >
-            Submit
-          </Button>
+            <FormControl id="email" isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input
+                value={email}
+                onChange={handleChange}
+                placeholder="Email"
+              />
+            </FormControl>{" "}
+            <FormControl id="phone-number" isRequired mb={2}>
+              <FormLabel>Phone Number</FormLabel>
+              <Input
+                value={phoneNumber}
+                onChange={handleChange}
+                placeholder="Phone number"
+              />
+            </FormControl>
+            <Button
+              borderRadius={0}
+              type="submit"
+              variant="solid"
+              colorScheme="teal"
+              width="full"
+              rounded="md"
+            >
+              Submit
+            </Button>
           </form>
-          </SimpleGrid>
+        </Box>
       </Stack>
     </Flex>
   );
