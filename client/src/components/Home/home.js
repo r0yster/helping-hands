@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
 
 import Aboutus from "../Aboutus/Aboutus";
+import Footer from "../Footer/Footer";
 import Event from "../Event/Event";
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <main>
-      <div>{loading ? <Event /> : <Aboutus />}</div>
+      <div>{loggedIn ? <Event /> : <><Aboutus /><Footer /></>}</div>
     </main>
   );
 };

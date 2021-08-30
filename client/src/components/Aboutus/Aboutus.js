@@ -2,12 +2,8 @@ import { Flex, Box, Stack, Image as Img } from "@chakra-ui/react";
 import React from "react";
 import source from "../images/logo3.png";
 
-import Auth from "../../utils/auth";
-import { useQuery } from "@apollo/client";
-import { QUERY_POSTS, QUERY_ME_BASIC } from "../../utils/queries";
 
 function Aboutus() {
-  const loggedIn = Auth.loggedIn();
 
   return (
     <Flex
@@ -22,10 +18,6 @@ function Aboutus() {
       backgroundSize="cover"
       opacity="75%"
     >
-      {/* 
-      {loggedIn && (
-        <
-      )} */}
       <Stack
         marginTop="4rem"
         boxShadow="2xl"
@@ -53,7 +45,6 @@ function Aboutus() {
             fontSize="4xl"
             alignItems="center"
             justify="center"
-            // marginBottom="5rem"
             color="black.900"
             borderBottomWidth="3px"
             borderBottomColor="#367e7f"

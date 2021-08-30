@@ -1,7 +1,5 @@
 import { React, useState } from "react";
-import { useMutation } from "@apollo/client";
-
-// import { ADD_VOLUNTEER } from "../../utils/mutations";
+import Footer from "../Footer/Footer";
 import {
   Input,
   FormControl,
@@ -18,9 +16,6 @@ const Volunteer = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
-  // const [formState, setFormState ] = useState({ firtName: "", lastName: "", email: "", phoneNumber: "" });
-  // const [addVolunteer] = useMutation(ADD_VOLUNTEER);
 
   const handleChange = (event) => {
     setFirstName(event.target.value);
@@ -40,6 +35,7 @@ const Volunteer = () => {
   };
 
   return (
+    <>
     <Flex
       flexDirection="column"
       width="100wh"
@@ -112,6 +108,8 @@ const Volunteer = () => {
         </Box>
       </Stack>
     </Flex>
+    <Footer />
+    </>
   );
 };
 

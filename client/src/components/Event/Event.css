@@ -1,3 +1,7 @@
-html {
-  background-color: #0181cc;
+html body{
+  /* background-color: #0181cc; */
+  background-image: url('../images/background.jpg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
 }

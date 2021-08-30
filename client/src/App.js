@@ -57,7 +57,6 @@ function App() {
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>
