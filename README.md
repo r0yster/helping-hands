@@ -1,9 +1,6 @@
 # Helping Hands
 ![image](https://user-images.githubusercontent.com/10663977/131276866-fb4b89ed-38b3-4909-9597-8d3805bb68cb.png)
 
-
-![](./Assets/helpinghands.png)
-
 #### Table of Contents
 
 - [About](#About)
