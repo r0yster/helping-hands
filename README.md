@@ -21,7 +21,7 @@ SO THAT I can give back to my community.
 To install please visit the [Helping Hands](https://github.com/r0yster/helping-hands) and look at the uploaded files via GitHub Deployment. You may fork the repository and download [Node.js](https://nodejs.org/en/) Additionally, you will need [Visual Studio Code](https://code.visualstudio.com/), [npm](https://www.npmjs.com/), and [Express](https://www.npmjs.com/package/express).The details of how to implement these are provided in the [Usage](#Usage) section below.
 
 # Usage   
-Please visit our launched application via [this link](https://helping-hands-rlrs.herokuapp.com/). Below are the tools used to create Helping Hands.
+Please visit our launched application via [this link](https://helping-hands-deux.herokuapp.com/). Below are the tools used to create Helping Hands.
 
 
 ### GraphQL
