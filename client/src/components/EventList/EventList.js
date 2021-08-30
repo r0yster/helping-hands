@@ -24,7 +24,7 @@ const EventList = ({ posts, title }) => {
           backgroundColor="whiteAlpha.900"
           boxShadow="md"
           rounded="md"
-          mb="215"
+          mb="1700"
           pt="15%"
           p="2"
         >
