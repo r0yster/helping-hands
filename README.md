@@ -13,7 +13,7 @@
 Helping Hands seeks to serve the less fortunate through grass root efforts of engaged community members.
 
 # User Story
-AS A ally,<br>
+AS AN ally,<br>
 I WANT to connect with marginalized peoples, <br>
 SO THAT I can give back to my community.
 
