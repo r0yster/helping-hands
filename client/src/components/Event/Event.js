@@ -65,6 +65,7 @@ const Event = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      id="eventPage"
     >
       <Box boxSize="sm" rounded="md" ml="150px">
         <form onSubmit={handleFormSubmit}>

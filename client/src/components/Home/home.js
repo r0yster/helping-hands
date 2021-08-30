@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <main>
-      <div>{loggedIn ? <Event /> : <><Aboutus /><Footer /></>}</div>
+      <div>{loading ? <Event /> : <><Aboutus /><Footer /></>}</div>
     </main>
   );
 };
