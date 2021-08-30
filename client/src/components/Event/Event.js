@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
 import { ADD_POST } from "../../utils/mutations";
+import Footer from "../Footer/Footer";
 
 import EventList from "../EventList/EventList";
 
@@ -55,17 +56,19 @@ const Event = () => {
   };
 
   return (
+    <>
     <Flex
       p="4"
       flexDirection="row"
       width="100wh"
-      height="100vh"
+      height="89vh"
       alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       id="eventPage"
+      overflowY="auto"
     >
       <Box boxSize="sm" rounded="md" ml="150px">
         <form onSubmit={handleFormSubmit}>
@@ -130,6 +133,8 @@ const Event = () => {
         </div>
       </Box>
     </Flex>
+    <Footer />
+    </>
   );
 };
 
