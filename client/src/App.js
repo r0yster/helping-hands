@@ -19,9 +19,9 @@ import SinglePost from "./components/SingleEvent/SingleEvent";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Donate from "./components/Donate/Donate";
-import Footer from "./components/Footer/Footer";
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -54,7 +54,6 @@ function App() {
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
           </Switch>
-          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>

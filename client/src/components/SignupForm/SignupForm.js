@@ -1,7 +1,8 @@
 import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
-import Auth from "../../utils/auth"
+import Auth from "../../utils/auth";
+import Footer from "../Footer/Footer";
 import {
   Flex,
   Heading,
@@ -50,6 +51,7 @@ const SignupForm = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
+    <>
     <Flex
       flexDirection="column"
       width="100wh"
@@ -60,6 +62,7 @@ const SignupForm = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+
     >
       <Stack
         flexDir="column"
@@ -144,13 +147,9 @@ const SignupForm = () => {
           </form>
         </Box>
       </Stack>
-      {/* <Box>
-        New to us?{" "}
-        <Link color="teal.500" href="#">
-          Sign Up
-        </Link> */}
-      {/* </Box> */}
     </Flex>
+    <Footer />
+    </>
   );
 };
 

@@ -20,7 +20,7 @@
 }
 
 /* Add a color to the active/current link */
-.footer a.active {
+.footer a.factive {
   color: #f2f2f2;
 }
 

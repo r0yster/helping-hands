@@ -5,8 +5,6 @@ import source from "../images/logo3.png";
 import Auth from "../../utils/auth";
 
 function Aboutus() {
-  const loggedIn = Auth.loggedIn();
-
   return (
     <Flex
       flexDirection="column"
@@ -18,12 +16,8 @@ function Aboutus() {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      opacity="75%"
+ 
     >
-      {/* 
-      {loggedIn && (
-        <
-      )} */}
       <Stack
         marginTop="4rem"
         boxShadow="2xl"
@@ -51,7 +45,6 @@ function Aboutus() {
             fontSize="4xl"
             alignItems="center"
             justify="center"
-            // marginBottom="5rem"
             color="black.900"
             borderBottomWidth="3px"
             borderBottomColor="#367e7f"

@@ -5,7 +5,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <div className="footer">
-      <a className="active" href="mailto:helpinghandsdeux@gmailcom">
+      <a className="factive" href="mailto:helpinghandsdeux@gmailcom">
         {" "}
         Contact Us
       </a>
