@@ -1,6 +1,7 @@
 import React from "react";
 import "./Nav.css";
 
+
 function Navigation(props) {
   const tabs = ["Dashboard", "Signup", "Login", "Home", "Event"];
   return (

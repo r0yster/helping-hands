@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/queries";
-import Auth from "../../utils/auth"
+import Auth from "../../utils/auth";
 import {
   Flex,
   Heading,
@@ -17,14 +17,13 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-// import backgroundImage from "../images/background.jpg";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [addUser] = useMutation(ADD_USER);
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +39,7 @@ const SignupForm = () => {
     try {
       // execute addUser mutation and pass in variable data form form
       const { data } = await addUser({
-        variables: { ...formState }
+        variables: { ...formState },
       });
       Auth.login(data.addUser.token);
       console.log(data);
@@ -67,11 +66,12 @@ const SignupForm = () => {
         mb="8rem"
         justifyContent="center"
         alignItems="center"
+        rounded="md"
       >
         <Avatar bg="teal.500" />
         <Heading color="whiteAlpha.900">Sign Up</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
-        <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <Stack
               spacing={4}
               p="1rem"
@@ -85,7 +85,12 @@ const SignupForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="username" name="username" placeholder="Username" onChange = {handleChange} />
+                  <Input
+                    type="username"
+                    name="username"
+                    placeholder="Username"
+                    onChange={handleChange}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -94,7 +99,12 @@ const SignupForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" name="email" placeholder="Email Address" onChange = {handleChange} />
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    onChange={handleChange}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -107,7 +117,7 @@ const SignupForm = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
-                    onChange = {handleChange}
+                    onChange={handleChange}
                     name="password"
                   />
                   <InputRightElement width="4.5rem">
@@ -126,6 +136,7 @@ const SignupForm = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                rounded="md"
               >
                 Sign Up
               </Button>

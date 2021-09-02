@@ -13,22 +13,22 @@ const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      iconColor: "#c4f0ff",
-      color: "#fff",
+      iconColor: "#565656",
+      color: "#565656",
       fontWeight: 500,
       fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
       fontSize: "16px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#000000",
+        color: "#565656",
       },
       "::placeholder": {
-        color: "#87bbfd",
+        color: "#565656",
       },
     },
     invalid: {
-      iconColor: "#ffc7ee",
-      color: "#000000",
+      iconColor: "#565656",
+      color: "#565656",
     },
   },
 };
@@ -141,6 +141,7 @@ const CheckoutForm = () => {
     });
 
     setProcessing(false);
+    console.log(payload);
 
     if (payload.error) {
       setError(payload.error);
@@ -166,8 +167,7 @@ const CheckoutForm = () => {
         Payment successful
       </div>
       <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we
-        generated a PaymentMethod: {paymentMethod.id}
+        Thanks for trying Stripe Elements. PaymentMethod: {paymentMethod.id}
       </div>
       <ResetButton onClick={reset} />
     </div>
@@ -211,7 +211,10 @@ const CheckoutForm = () => {
           }}
         />
       </fieldset>
-      <fieldset className="FormGroup" style={{ backgroundColor: "#fff" }}>
+      <fieldset
+        className="FormGroup"
+        style={{ backgroundColor: "#fff", color: "#000000" }}
+      >
         <CardField
           onChange={(e) => {
             setError(e.error);
@@ -226,9 +229,11 @@ const CheckoutForm = () => {
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
           Donate $5
         </SubmitButton>
+
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
           Donate $25
         </SubmitButton>
+
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
           Donate $50
         </SubmitButton>
