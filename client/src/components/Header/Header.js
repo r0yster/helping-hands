@@ -9,10 +9,17 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  IconButton,
-} from "@chakra-ui/react";
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuIcon,
+  MenuCommand,
+  MenuDivider,
+  IconButton
+} from "@chakra-ui/react"
 
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from '@chakra-ui/icons'
+
 
 function Header() {
   const logout = (event) => {
@@ -20,6 +27,7 @@ function Header() {
     Auth.logout();
   };
   const loggedIn = Auth.loggedIn();
+
 
   return (
     <header>
@@ -29,6 +37,7 @@ function Header() {
         </Link>
 
         <div className="topnav-right">
+
           <Menu>
             <MenuButton
               as={IconButton}
@@ -72,5 +81,8 @@ function Header() {
     </header>
   );
 }
+
+
+
 
 export default Header;

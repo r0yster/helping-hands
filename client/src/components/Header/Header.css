@@ -27,7 +27,10 @@
   background-color: #367e7f;
   display: flex;
   justify-content: space-between;
+ 
 }
+
+
 
 /* Hide the links inside the navigation menu (except for logo/home) */
 /* .topnav #myLinks {
@@ -44,27 +47,28 @@
 }  */
 
 /* Style the hamburger menu */
-.topnav-right {
-  background: #d78077;
-  border-color: #d78077;
+ .topnav-right {
+  background: #D78077;
+  border-color: #D78077;
   /* display: block;
   position: absolute;
   right: 0;
   top: 0; */
-}
+}  
 
 #menu-button-4 {
-  border-color: #d78077;
-  background: #d78077;
-  border-radius: 0px;
+  border-color: #D78077;
+ background: #D78077;
+ border-radius: 0px;
+ 
 }
 
 /* Style the active link (or home/logo) */
-.active {
-  background-color: #ab4b8b;
+ .active {
+  background-color: #AB4B8B;
   color: white;
   padding: 10px;
-}
+} 
 
 /* .button {
   background-color: #D78077;
