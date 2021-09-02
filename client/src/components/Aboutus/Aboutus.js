@@ -33,7 +33,7 @@ function Aboutus() {
         rounded="md"
         bg="white"
         spacing={4}
-        backgroundColor="whi#367e7fpha.900"
+        backgroundColor="whiteAlpha.900"
         flexDir="column"
         mb="8rem"
         justifyContent="center"
@@ -64,7 +64,7 @@ function Aboutus() {
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {" "}
-            <Img src={source} alt="helping-hands icon" boxSize="150px" />
+            <Img src={source} alt="helping-hands icon" boxSize="150px" ml={5} />
           </Flex>
 
           <Box>

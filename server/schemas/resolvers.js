@@ -1,7 +1,7 @@
-const { User, Post, Comment } = require("../models");
+const { User, Post, Volunteer } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const { post } = require("../models/Comment");
+
 
 const resolvers = {
   Query: {
@@ -9,7 +9,9 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
-        );
+        )
+        .populate('posts')
+        .populate('comments');
 
         return userData;
       }
@@ -26,14 +28,14 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select("-__v -password")
-        .populate("friends")
-        .populate("thoughts");
+        .populate("posts")
+        // .populate("comments");
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("friends");
+        .populate("posts");
     },
   },
   Mutation: {
@@ -43,6 +45,11 @@ const resolvers = {
 
       return { token, user };
     },
+    // addVolunteer: async (parent, args) => {
+    //   const volunteer = await Volunteer.create(args);
+      
+      
+    // }
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

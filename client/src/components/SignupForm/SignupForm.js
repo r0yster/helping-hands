@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../../utils/queries";
-import Auth from "../../utils/auth";
+import { ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth"
 import {
   Flex,
   Heading,
@@ -60,6 +60,7 @@ const SignupForm = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      opacity="75%"
     >
       <Stack
         flexDir="column"

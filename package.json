@@ -17,6 +17,12 @@
     "nodemon": "^2.0.12"
   },
   "dependencies": {
-    "@emotion/styled": "^11.3.0"
+    "@emotion/styled": "^11.3.0",
+    "greenlock": "^4.0.4",
+    "i": "^0.3.6",
+    "react-popup": "^0.10.0"
+  },
+  "engines": {
+    "node": "14.16.1"
   }
 }
