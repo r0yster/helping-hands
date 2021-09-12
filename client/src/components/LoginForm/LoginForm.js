@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 import {
   Flex,
   Heading,
@@ -9,54 +12,78 @@ import {
   InputLeftElement,
   chakra,
   Box,
-  Link,
   Avatar,
   FormControl,
   FormHelperText,
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-// import backgroundImage from "../images/background.jpg";
-import "./LoginForm.css";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <Flex
       flexDirection="column"
       width="100wh"
       height="100vh"
-      justifyContent="flex-start"
-      alignItems="flex-start"
+      justifyContent="center"
+      alignItems="center"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      alignContent="flex-start"
+      rounded="md"
     >
       <Stack
         flexDir="column"
-        mb="2"
+        mb="8rem"
         justifyContent="center"
         alignItems="center"
-        alignContent="flex-start"
-        marginLeft="5rem"
-        paddingTop="4em"
+        rounded="md"
       >
-        <Heading color="Navy.400">Chill Pill</Heading>
-        <Box minW={{ base: "40%", md: "250px" }}>
-          <form>
+        <Avatar bg="teal.500" />
+        <Heading color="whiteAlpha.900">Login</Heading>
+        <Box minW={{ base: "90%", md: "468px" }}>
+          <form onSubmit={handleFormSubmit}>
             <Stack
               spacing={4}
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              rounded="md"
             >
               <FormControl>
                 <InputGroup>
@@ -64,7 +91,12 @@ const LoginForm = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="Email Address" />
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="email address"
+                    onChange={handleChange}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -76,7 +108,9 @@ const LoginForm = () => {
                   />
                   <Input
                     type={showPassword ? "text" : "password"}
+                    name="password"
                     placeholder="Password"
+                    onChange={handleChange}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -84,9 +118,9 @@ const LoginForm = () => {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
-                {/* <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
-                </FormHelperText> */}
+                <FormHelperText textAlign="right">
+                  {/* <Link>forgot password?</Link> */}
+                </FormHelperText>
               </FormControl>
               <Button
                 borderRadius={0}
@@ -94,6 +128,7 @@ const LoginForm = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                rounded="md"
               >
                 Login
               </Button>
@@ -101,12 +136,12 @@ const LoginForm = () => {
           </form>
         </Box>
       </Stack>
-      <Box marginLeft="10rem">
-        {/* New to us?{" "} */}
-        <Link color="navy.500" href="/SignupForm">
-          {/* Sign Up */}
+      {/* <Box>
+        New to us?{" "}
+        <Link color="teal.500" href="#">
+          Sign Up
         </Link>
-      </Box>
+      </Box> */}
     </Flex>
   );
 };
