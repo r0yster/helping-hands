@@ -1,49 +1,41 @@
-const { User, Post, Comment } = require("../models");
+const { User, Post, Volunteer } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
-const { signToken } = require('../utils/auth');
-const { GraphQLScalarType, Kind } = require('graphql');
-
-const dateScalar = new GraphQLScalarType({
-  name: 'Date',
-  description: 'Date custom scalar type',
-
-  serialize(value){
-    return value.getTime();
-  },
-  parseValue(value){
-    return new Date(value);
-  },
-  parseLiteral(ast){
-    if (ast.kind === Kind.INT) {
-      return new Date(parseInt(ast.value, 10));
-    }
-    return null;
-  }
-}),
 const { signToken } = require("../utils/auth");
-const { post } = require("../models/Comment");
+
 
 const resolvers = {
-  Date: dateScalar,
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
-        );
+        )
+        .populate('posts')
+        .populate('comments');
 
         return userData;
       }
 
       throw new AuthenticationError("Not logged in");
     },
-
-    comments: async (parent, { username }) => {
+    posts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
+      return Post.find(params).sort({ createdAt: -1 });
     },
-    comment: async (parent, { _id }) => {
-      return Comment.findOne({ _id });
+    post: async (parent, { _id }) => {
+      return Post.findOne({ _id });
+    },
+    users: async () => {
+      return User.find()
+        .select("-__v -password")
+        .populate("posts")
+        // .populate("comments");
+    },
+    // get a user by username
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select("-__v -password")
+        .populate("posts");
     },
   },
   Mutation: {
@@ -53,6 +45,11 @@ const resolvers = {
 
       return { token, user };
     },
+    // addVolunteer: async (parent, args) => {
+    //   const volunteer = await Volunteer.create(args);
+      
+      
+    // }
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
