@@ -37,6 +37,9 @@ const resolvers = {
         .select("-__v -password")
         .populate("posts");
     },
+    volunteer: async () => {
+       return Volunteer.find({})
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -45,11 +48,11 @@ const resolvers = {
 
       return { token, user };
     },
-    // addVolunteer: async (parent, args) => {
-    //   const volunteer = await Volunteer.create(args);
-      
-      
-    // }
+    addVolunteer: async (parent, args) => {
+      const volunteer = await Volunteer.create(args);
+
+      return volunteer;      
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
