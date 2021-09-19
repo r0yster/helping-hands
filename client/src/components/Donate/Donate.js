@@ -15,7 +15,7 @@ const Donate = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      opacity="75%"
+
     >
       <Stack
         marginTop="4rem"

@@ -27,7 +27,7 @@ const Volunteer = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    alert("Thank You for volunteering, someone will contact you!!");
+    alert("Thank you for volunteering, someone will contact you soon.");
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -36,79 +36,78 @@ const Volunteer = () => {
 
   return (
     <>
-    <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      justifyContent="center"
-      alignItems="center"
-      backgroundImage="url('../images/background.jpg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-      opacity="75%"
-    >
-      <Stack
-        spacing={4}
-        p="1rem"
-        backgroundColor="whiteAlpha.900"
-        boxShadow="md"
-        rounded="md"
+      <Flex
+        flexDirection="column"
+        width="100wh"
+        height="100vh"
+        justifyContent="center"
+        alignItems="center"
+        backgroundImage="url('../images/background.jpg')"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
       >
-        <Flex justifyContent="center">
-          {" "}
-          <Heading color="#367e7f">Volunteer</Heading>
-        </Flex>
+        <Stack
+          spacing={4}
+          p="1rem"
+          backgroundColor="whiteAlpha.900"
+          boxShadow="md"
+          rounded="md"
+        >
+          <Flex justifyContent="center">
+            {" "}
+            <Heading color="#367e7f">Volunteer</Heading>
+          </Flex>
 
-        <Box minW={{ base: "90%", md: "375px" }}>
-          <form onSubmit={handleFormSubmit}>
-            <FormControl id="first-name" isRequired>
-              <FormLabel>First name</FormLabel>
-              <Input
-                value={firstName}
-                onChange={handleChange}
-                placeholder="First name"
-              />
-            </FormControl>
-            <FormControl id="first-name" isRequired>
-              <FormLabel>Last name</FormLabel>
-              <Input
-                value={lastName}
-                onChange={handleChange}
-                placeholder="Last name"
-              />
-            </FormControl>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email</FormLabel>
-              <Input
-                value={email}
-                onChange={handleChange}
-                placeholder="Email"
-              />
-            </FormControl>{" "}
-            <FormControl id="phone-number" isRequired mb={2}>
-              <FormLabel>Phone Number</FormLabel>
-              <Input
-                value={phoneNumber}
-                onChange={handleChange}
-                placeholder="Phone number"
-              />
-            </FormControl>
-            <Button
-              borderRadius={0}
-              type="submit"
-              variant="solid"
-              colorScheme="teal"
-              width="full"
-              rounded="md"
-            >
-              Submit
-            </Button>
-          </form>
-        </Box>
-      </Stack>
-    </Flex>
-    <Footer />
+          <Box minW={{ base: "90%", md: "375px" }}>
+            <form onSubmit={handleFormSubmit}>
+              <FormControl id="first-name" isRequired>
+                <FormLabel>First name</FormLabel>
+                <Input
+                  value={firstName}
+                  onChange={handleChange}
+                  placeholder="First name"
+                />
+              </FormControl>
+              <FormControl id="first-name" isRequired>
+                <FormLabel>Last name</FormLabel>
+                <Input
+                  value={lastName}
+                  onChange={handleChange}
+                  placeholder="Last name"
+                />
+              </FormControl>
+              <FormControl id="email" isRequired>
+                <FormLabel>Email</FormLabel>
+                <Input
+                  value={email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                />
+              </FormControl>{" "}
+              <FormControl id="phone-number" isRequired mb={2}>
+                <FormLabel>Phone Number</FormLabel>
+                <Input
+                  value={phoneNumber}
+                  onChange={handleChange}
+                  placeholder="Phone number"
+                />
+              </FormControl>
+              <Button
+                borderRadius={0}
+                type="submit"
+                variant="solid"
+                colorScheme="teal"
+                width="full"
+                rounded="md"
+              >
+                Submit
+              </Button>
+            </form>
+          </Box>
+        </Stack>
+      </Flex>
+      <Footer />
     </>
   );
 };

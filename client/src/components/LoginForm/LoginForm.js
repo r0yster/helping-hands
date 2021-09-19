@@ -25,7 +25,7 @@ const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -68,7 +68,8 @@ const LoginForm = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       rounded="md"
-      opacity="75%"
+      // opacity="75%"
+
     >
       <Stack
         flexDir="column"

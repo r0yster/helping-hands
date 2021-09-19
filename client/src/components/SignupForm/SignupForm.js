@@ -62,7 +62,7 @@ const SignupForm = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      opacity="75%"
+      // opacity="75%"
     >
       <Stack
         flexDir="column"

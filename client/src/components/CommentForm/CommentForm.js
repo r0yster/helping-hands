@@ -54,10 +54,7 @@ const CommentForm = ({ postId }) => {
           boxShadow="2xl"
           rounded="md"
           bg="white"
-          // spacing={4}
-          // m={2}
           mb={3}
-          rounded="md"
           placeholder="Add contributions here..."
           value={commentBody}
           className="form-input col-12 col-md-9"

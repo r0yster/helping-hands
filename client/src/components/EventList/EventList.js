@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Flex, Box, Text, Heading, Stack } from "@chakra-ui/react";
 
-
 const EventList = ({ posts, title }) => {
   if (!posts.length) {
     return <Heading>No Posts Yet</Heading>;

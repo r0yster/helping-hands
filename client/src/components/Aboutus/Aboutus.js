@@ -2,9 +2,9 @@ import { Flex, Box, Stack, Image as Img } from "@chakra-ui/react";
 import React from "react";
 import source from "../images/logo3.png";
 
+import Auth from "../../utils/auth";
 
 function Aboutus() {
-
   return (
     <Flex
       flexDirection="column"
@@ -16,7 +16,7 @@ function Aboutus() {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      opacity="75%"
+ 
     >
       <Stack
         marginTop="4rem"

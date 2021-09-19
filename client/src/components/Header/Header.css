@@ -1,69 +1,87 @@
-/* .topnav {
-  overflow: hidden;
+.navbar {
   background-color: #367e7f;
-
-} */
-
-/* .topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 25px;
-} */
-
-/* .topnav a:hover {
-  color: #580749;
-}  */
-
-/* .topnav-right {
-  float: right;
-}   */
-
-/* Style the navigation menu */
-.topnav {
-  /* overflow: hidden; */
-  background-color: #367e7f;
+  height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  align-items: center;
+}
+nav {
+  background-color: #367e7f;
+}
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
-/* .topnav #myLinks {
-  display: none;
-}  */
+.nav-menu {
+  background-color: #367e7f;
+  width: 190px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
 
-/* Style navigation menu links */
-/* .topnav a {
-  color: white;
-  padding: 14px 16px;
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text {
   text-decoration: none;
-  font-size: 17px;
-  display: block;
-}  */
-
-/* Style the hamburger menu */
-.topnav-right {
-  background: #d78077;
-  border-color: #d78077;
-  /* display: block;
-  position: absolute;
-  right: 0;
-  top: 0; */
+  color: #f5f5f5;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
 }
 
-#menu-button-4 {
-  border-color: #d78077;
-  background: #d78077;
-  border-radius: 0px;
+.link {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+.nav-text .link:hover {
+  background-color: #580749;
 }
 
-/* Style the active link (or home/logo) */
-.active {
-  background-color: #ab4b8b;
-  color: white;
-  padding: 10px;
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: #367e7f;
+  width: 75%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
 }
 
 /* .button {
