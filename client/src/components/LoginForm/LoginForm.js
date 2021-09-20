@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import Footer from "../Footer/Footer";
 import {
   Flex,
   Heading,
@@ -24,7 +25,7 @@ const CFaLock = chakra(FaLock);
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -55,6 +56,7 @@ const LoginForm = () => {
   };
 
   return (
+    <>
     <Flex
       flexDirection="column"
       width="100wh"
@@ -66,7 +68,8 @@ const LoginForm = () => {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       rounded="md"
-      opacity="75%"
+      // opacity="75%"
+
     >
       <Stack
         flexDir="column"
@@ -137,13 +140,9 @@ const LoginForm = () => {
           </form>
         </Box>
       </Stack>
-      {/* <Box>
-        New to us?{" "}
-        <Link color="teal.500" href="#">
-          Sign Up
-        </Link>
-      </Box> */}
     </Flex>
+    <Footer />
+    </>
   );
 };
 

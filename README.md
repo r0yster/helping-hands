@@ -1,5 +1,5 @@
 # Helping Hands
-![](./Assets/helpinghands.png)
+![image](https://user-images.githubusercontent.com/10663977/131276866-fb4b89ed-38b3-4909-9597-8d3805bb68cb.png)
 
 #### Table of Contents
 
@@ -13,15 +13,15 @@
 Helping Hands seeks to serve the less fortunate through grass root efforts of engaged community members.
 
 # User Story
-AS A ally,<br>
+AS AN ally,<br>
 I WANT to connect with marginalized peoples, <br>
 SO THAT I can give back to my community.
 
 # Installation
-To install please visit the [Helping Hands](insertgithublinkhere) and look at the uploaded files via GitHub Deployment. You may fork the repository and download [Node.js](https://nodejs.org/en/) Additionally, you will need [Visual Studio Code](https://code.visualstudio.com/), [npm](https://www.npmjs.com/), and [Express](https://www.npmjs.com/package/express).The details of how to implement these are provided in the [Usage](#Usage) section below.
+To install please visit the [Helping Hands](https://github.com/r0yster/helping-hands) and look at the uploaded files via GitHub Deployment. You may fork the repository and download [Node.js](https://nodejs.org/en/) Additionally, you will need [Visual Studio Code](https://code.visualstudio.com/), [npm](https://www.npmjs.com/), and [Express](https://www.npmjs.com/package/express).The details of how to implement these are provided in the [Usage](#Usage) section below.
 
 # Usage   
-Please visit our launched application via [this link](insertlink). Below are the tools used to create Helping Hands.
+Please visit our launched application via [this link](https://helping-hands-deux.herokuapp.com/). Below are the tools used to create Helping Hands.
 
 
 ### GraphQL
@@ -68,8 +68,8 @@ Helping Hands would not be possible without these coding hands:
 
 Feel free to contribute to this project in any of the following ways:
 
-- [Submit bug and feature requests](placeurlhere)
-- [Review Source Code Changes](urlhere) and make pull requests from typos to content
+- [Submit bug and feature requests](https://github.com/r0yster/helping-hands/issues)
+- [Review Source Code Changes](https://github.com/r0yster/helping-hands/pulls) and make pull requests from typos to content
 - For specific concerns that do not meet the above please do not hesitate to reach out to me via [My GitHub](urlhere).
 
 If you are interested in fixing issues directly to the code base, please reference the [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) article.
