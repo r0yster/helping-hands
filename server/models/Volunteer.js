@@ -15,7 +15,7 @@ const volunteerSchema = new Schema(
         required: true,
         match: [/.+@.+\..+/, 'Must use a valid email address']
     },
-    phone: {
+    phoneNumber: {
         type: String,
         required: true,
         match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/, 'Enter Valid Phone Number']

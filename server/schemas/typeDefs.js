@@ -15,7 +15,7 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    phone: String!
+    phoneNumber: String!
   }
 
   type Post {
@@ -51,7 +51,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addVolunteer(firstName: String!, lastName: String!, email: String!, phone: String!): Volunteer
+    addVolunteer(firstName: String!, lastName: String!, email: String!, phoneNumber: String!): Volunteer
     addPost(postText: String!): Post
     addComment(postId: ID!, commentBody: String!): Post
   }

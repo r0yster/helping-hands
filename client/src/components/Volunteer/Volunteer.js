@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { useMutation } from "@apollo/client";
 import Footer from "../Footer/Footer";
 import {
   Input,
@@ -10,29 +11,49 @@ import {
   Heading,
   Box,
 } from "@chakra-ui/react";
+import { ADD_VOLUNTEER } from "../../utils/mutations";
 
 const Volunteer = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', phoneNumber: '' });
+  const [addVolunteer, { error }] = useMutation(ADD_VOLUNTEER);
+
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleChange = (event) => {
-    setFirstName(event.target.value);
-    setLastName(event.target.value);
-    setEmail(event.target.value);
-    setPhoneNumber(event.target.value);
+    const { name, value } = event.target;
+    // setFirstName(event.target.value);
+    // setLastName(event.target.value);
+    // setEmail(event.target.value);
+    // setPhoneNumber(event.target.value);
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    try {
+      const { data } = await addVolunteer({
+        variables: { ...formState }
+      });
+
+      console.log(data);
+
+    } catch(e) {
+      console.error(e);
+    };
+
     alert("Thank you for volunteering, someone will contact you soon.");
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPhoneNumber("");
   };
+    // setFirstName("");
+    // setLastName("");
+    // setEmail("");
+    // setPhoneNumber("");
 
   return (
     <>
@@ -64,7 +85,8 @@ const Volunteer = () => {
               <FormControl id="first-name" isRequired>
                 <FormLabel>First name</FormLabel>
                 <Input
-                  value={firstName}
+                  name="firstName"
+                  value={formState.firstName}
                   onChange={handleChange}
                   placeholder="First name"
                 />
@@ -72,7 +94,8 @@ const Volunteer = () => {
               <FormControl id="first-name" isRequired>
                 <FormLabel>Last name</FormLabel>
                 <Input
-                  value={lastName}
+                  name="lastName"
+                  value={formState.lastName}
                   onChange={handleChange}
                   placeholder="Last name"
                 />
@@ -80,7 +103,8 @@ const Volunteer = () => {
               <FormControl id="email" isRequired>
                 <FormLabel>Email</FormLabel>
                 <Input
-                  value={email}
+                  name="email"
+                  value={formState.email}
                   onChange={handleChange}
                   placeholder="Email"
                 />
@@ -88,9 +112,10 @@ const Volunteer = () => {
               <FormControl id="phone-number" isRequired mb={2}>
                 <FormLabel>Phone Number</FormLabel>
                 <Input
-                  value={phoneNumber}
+                  name="phoneNumber"
+                  value={formState.phoneNumber}
                   onChange={handleChange}
-                  placeholder="Phone number"
+                  placeholder="Phone Number"
                 />
               </FormControl>
               <Button

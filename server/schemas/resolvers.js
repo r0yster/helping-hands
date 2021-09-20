@@ -38,7 +38,7 @@ const resolvers = {
         .populate("posts");
     },
     volunteer: async () => {
-       return Volunteer.find({})
+       return Volunteer.find()
     }
   },
   Mutation: {
