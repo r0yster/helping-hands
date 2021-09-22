@@ -19,6 +19,7 @@ import SinglePost from "./components/SingleEvent/SingleEvent";
 import Event from "./components/Event/Event";
 import Volunteer from "./components/Volunteer/Volunteer";
 import Donate from "./components/Donate/Donate";
+import Marketplace from "./components/Marketplace/Marketplace";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -53,6 +54,7 @@ function App() {
             <Route exact path="/volunteer" component={Volunteer} />
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/Donate" component={Donate} />
+            <Route exact path="/marketplace" component={Marketplace} />
           </Switch>
         </ChakraProvider>
       </BrowserRouter>

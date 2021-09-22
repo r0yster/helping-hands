@@ -98,6 +98,16 @@ function Header() {
                   Donate
                 </li>
               </Link>
+              <li>
+                <Link to="/marketplace" className="nav-text">
+                  {" "}
+                  <li className="link">
+                    {" "}
+                    <FaIcons.FaShoppingBasket />
+                    Marketplace
+                  </li>
+                </Link>
+              </li>
             </li>
           </ul>
         </nav>
@@ -107,80 +117,3 @@ function Header() {
 }
 
 export default Header;
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import Auth from "../../utils/auth";
-
-// import "./Header.css";
-
-// import {
-//   Menu,
-//   MenuButton,
-//   MenuList,
-//   li,
-//   IconButton,
-// } from "@chakra-ui/react";
-
-// import { HamburgerIcon } from "@chakra-ui/icons";
-
-// function Header() {
-//   const logout = (event) => {
-//     event.preventDefault();
-//     Auth.logout();
-//   };
-//   const loggedIn = Auth.loggedIn();
-
-//   return (
-//     <header>
-//       <div className="topnav">
-//         <Link className="active" to="/">
-//           Helping Hands
-//         </Link>
-
-//         <div className="topnav-right">
-//           <Menu>
-//             <MenuButton
-//               as={IconButton}
-//               aria-label="Options"
-//               icon={<HamburgerIcon />}
-//               variant="outline"
-//             />
-//             <MenuList borderColor="none">
-//               {loggedIn ? (
-//                 <>
-//                   <li>
-//                     <Link to="/Event">Events</Link>
-//                   </li>
-//                   <li>
-//                     <Link href="/" onClick={logout}>
-//                       Logout
-//                     </Link>
-//                   </li>
-//                 </>
-//               ) : (
-//                 <>
-//                   <li>
-//                     <Link to="/login">Login</Link>
-//                   </li>
-//                   <li>
-//                     <Link to="/signup">Signup</Link>
-//                   </li>
-//                 </>
-//               )}
-
-//               <li>
-//                 <Link to="/Volunteer">Volunteer</Link>
-//               </li>
-//               <li>
-//                 <Link to="/donate">Donate</Link>
-//               </li>
-//             </MenuList>
-//           </Menu>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Header;

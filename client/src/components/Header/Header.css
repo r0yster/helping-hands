@@ -2,7 +2,7 @@
   background-color: #367e7f;
   height: 80px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 nav {
@@ -33,7 +33,7 @@ nav {
 
 .nav-text {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
@@ -76,7 +76,7 @@ nav {
   width: 75%;
   height: 80px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 

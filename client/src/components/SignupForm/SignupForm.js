@@ -52,103 +52,102 @@ const SignupForm = () => {
 
   return (
     <>
-    <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      justifyContent="center"
-      alignItems="center"
-      backgroundImage="url('../images/background.jpg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-
-    >
-      <Stack
-        flexDir="column"
-        mb="8rem"
+      <Flex
+        flexDirection="column"
+        width="100wh"
+        height="100vh"
         justifyContent="center"
         alignItems="center"
-        rounded="md"
+        backgroundImage="url('../images/background.jpg')"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="whiteAlpha.900">Sign Up</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
-          <form onSubmit={handleFormSubmit}>
-            <Stack
-              spacing={4}
-              p="1rem"
-              backgroundColor="whiteAlpha.900"
-              boxShadow="md"
-              rounded="md"
-            >
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
-                  />
-                  <Input
-                    type="username"
-                    name="username"
-                    placeholder="Username"
-                    onChange={handleChange}
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
-                  />
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    onChange={handleChange}
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    color="gray.300"
-                    children={<CFaLock color="gray.300" />}
-                  />
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    onChange={handleChange}
-                    name="password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                {/* <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
-                </FormHelperText> */}
-              </FormControl>
-              <Button
-                borderRadius={0}
-                type="submit"
-                variant="solid"
-                colorScheme="teal"
-                width="full"
+        <Stack
+          flexDir="column"
+          mb="8rem"
+          justifyContent="center"
+          alignItems="center"
+          rounded="md"
+        >
+          <Avatar bg="teal.500" />
+          <Heading color="whiteAlpha.900">Sign Up</Heading>
+          <Box minW={{ base: "90%", md: "468px" }}>
+            <form onSubmit={handleFormSubmit}>
+              <Stack
+                spacing={4}
+                p="1rem"
+                backgroundColor="whiteAlpha.900"
+                boxShadow="md"
                 rounded="md"
               >
-                Sign Up
-              </Button>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-    </Flex>
-    <Footer />
+                <FormControl>
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<CFaUserAlt color="gray.300" />}
+                    />
+                    <Input
+                      type="username"
+                      name="username"
+                      placeholder="Username"
+                      onChange={handleChange}
+                    />
+                  </InputGroup>
+                </FormControl>
+                <FormControl>
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<CFaUserAlt color="gray.300" />}
+                    />
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      onChange={handleChange}
+                    />
+                  </InputGroup>
+                </FormControl>
+                <FormControl>
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      color="gray.300"
+                      children={<CFaLock color="gray.300" />}
+                    />
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      onChange={handleChange}
+                      name="password"
+                    />
+                    <InputRightElement width="4.5rem">
+                      <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                        {showPassword ? "Hide" : "Show"}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                  {/* <FormHelperText textAlign="right">
+                  <Link>forgot password?</Link>
+                </FormHelperText> */}
+                </FormControl>
+                <Button
+                  borderRadius={0}
+                  type="submit"
+                  variant="solid"
+                  colorScheme="teal"
+                  width="full"
+                  rounded="md"
+                >
+                  Sign Up
+                </Button>
+              </Stack>
+            </form>
+          </Box>
+        </Stack>
+      </Flex>
+      <Footer />
     </>
   );
 };
