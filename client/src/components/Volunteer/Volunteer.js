@@ -17,17 +17,8 @@ const Volunteer = () => {
   const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', phoneNumber: '' });
   const [addVolunteer, { error }] = useMutation(ADD_VOLUNTEER);
 
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // setFirstName(event.target.value);
-    // setLastName(event.target.value);
-    // setEmail(event.target.value);
-    // setPhoneNumber(event.target.value);
     setFormState({
       ...formState,
       [name]: value,
@@ -50,10 +41,6 @@ const Volunteer = () => {
 
     alert("Thank you for volunteering, someone will contact you soon.");
   };
-    // setFirstName("");
-    // setLastName("");
-    // setEmail("");
-    // setPhoneNumber("");
 
   return (
     <>
