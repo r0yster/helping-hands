@@ -4,7 +4,7 @@ import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
 
-import Aboutus from "../Aboutus/Aboutus";
+import About from "../About/About";
 import Footer from "../Footer/Footer";
 import Event from "../Event/Event";
 
@@ -18,7 +18,16 @@ const Home = () => {
 
   return (
     <main>
-      <div>{loading ? <Event /> : <><Aboutus /><Footer /></>}</div>
+      <div>
+        {loading ? (
+          <Event />
+        ) : (
+          <>
+            <About />
+            <Footer />
+          </>
+        )}
+      </div>
     </main>
   );
 };
