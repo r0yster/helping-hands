@@ -5,7 +5,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
 
 import About from "../About/About";
-import Footer from "../Footer/Footer";
 import Event from "../Event/Event";
 
 const Home = () => {
@@ -19,12 +18,11 @@ const Home = () => {
   return (
     <main>
       <div>
-        {loading ? (
+        {loggedIn ? (
           <Event />
         ) : (
           <>
             <About />
-            <Footer />
           </>
         )}
       </div>

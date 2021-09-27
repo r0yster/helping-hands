@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import Footer from "../Footer/Footer";
 import {
   Flex,
   Heading,
@@ -147,7 +146,6 @@ const SignupForm = () => {
           </Box>
         </Stack>
       </Flex>
-      <Footer />
     </>
   );
 };

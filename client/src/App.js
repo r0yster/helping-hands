@@ -12,7 +12,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../src/index.css";
 
 import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/home";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
@@ -57,6 +57,7 @@ function App() {
             <Route exact path="/Donate" component={Donate} />
             <Route exact path="/marketplace" component={Marketplace} />
           </Switch>
+          <Footer />
         </ChakraProvider>
       </BrowserRouter>
     </ApolloProvider>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Stack, Box, Image as Img, Text } from "@chakra-ui/react";
 import source from "../images/logo3.png";
-import Footer from "../Footer/Footer";
+
 const Donate = () => {
   return (
     <>
@@ -102,7 +102,6 @@ const Donate = () => {
           </Box>
         </Stack>
       </Flex>
-      <Footer />
     </>
   );
 };

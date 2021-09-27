@@ -3,17 +3,19 @@ import { Box, Button, Container, SimpleGrid, Text, Textarea } from "@chakra-ui/r
 import "./Event.css";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
-import { QUERY_POSTS } from "../../utils/queries";
+import { QUERY_POSTS, QUERY_VOLUNTEERS } from "../../utils/queries";
 import { ADD_POST } from "../../utils/mutations";
-import Footer from "../Footer/Footer";
 
 import EventList from "../EventList/EventList";
+import VolunteerList from "../Volunteer/VolunteerList";
 
 const Event = () => {
   const [postText, setText] = useState("");
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading:postsQueryLoading, data:postData } = useQuery(QUERY_POSTS);
+  const { loading:volunteersQueryLoading, data:volunteerData } = useQuery(QUERY_VOLUNTEERS);
 
-  const posts = data?.posts || [];
+  const posts = postData?.posts || [];
+  const volunteers = volunteerData?.volunteers || [];
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -73,7 +75,7 @@ const Event = () => {
         p="6"
         rounded="md"
         >
-        {loading ? (
+        {postsQueryLoading ? (
           <div>Loading...</div>
         ) : (
           <EventList posts={posts} title="See Events List Below:" />
@@ -112,11 +114,14 @@ const Event = () => {
         p="6"
         rounded="md"
         >
-        VOLUNTEER LIST HERE
+        {volunteersQueryLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <VolunteerList volunteers={volunteers} title="Volunteers Available:" />
+        )}
       </Box>
       </SimpleGrid>
     </Container>
-      <Footer />
     </>
   );
 };

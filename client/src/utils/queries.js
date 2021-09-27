@@ -19,6 +19,18 @@ query posts($postsUsername: String) {
 }
 `
 
+export const QUERY_VOLUNTEERS = gql`
+query volunteers {
+  volunteers {
+    _id
+    firstName
+    lastName
+    email
+    phoneNumber
+  }
+}
+`
+
 export const QUERY_POST = gql`
 query post($postId: ID!) {
   post(_id: $postId) {

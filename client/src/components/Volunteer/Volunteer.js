@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { useMutation } from "@apollo/client";
-import Footer from "../Footer/Footer";
 import {
   Input,
   FormControl,
@@ -119,7 +118,6 @@ const Volunteer = () => {
           </Box>
         </Stack>
       </Flex>
-      <Footer />
     </>
   );
 };
