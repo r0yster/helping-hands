@@ -37,7 +37,7 @@ const resolvers = {
         .select("-__v -password")
         .populate("posts");
     },
-    volunteer: async () => {
+    volunteers: async () => {
        return Volunteer.find()
     }
   },

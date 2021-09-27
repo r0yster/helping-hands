@@ -1,6 +1,5 @@
 import React from "react";
 import "./Marketplace.css";
-import Footer from "../Footer/Footer";
 import {
   Flex,
   Popover,
@@ -145,7 +144,6 @@ function Marketplace() {
           </ul>
         </div>
       </Flex>
-      <Footer />
     </>
   );
 }

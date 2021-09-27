@@ -9,13 +9,17 @@ const EventList = ({ posts, title }) => {
 
   return (
     <Box>
-      <Heading>
+      <Heading size="md">
         {title}
       </Heading>
-      <VStack>
+      <VStack width="100%">
       {posts &&
         posts.map((post) => (
-          <div key={post._id}>
+          <Box
+            width="100%"
+            fontSize="1.30vw" 
+            pt="4"
+            key={post._id}>
             <Text>
               <Link
                 to={`/profile/${post.username}`}
@@ -26,7 +30,13 @@ const EventList = ({ posts, title }) => {
               </Link>{" "}
               post on {post.createdAt}
             </Text>
-            <div>
+            <Box
+              borderTop="2px"
+              borderBottom="2px"
+              borderTopColor="gray.300"
+              borderBottomColor="gray.300"
+              pb="1"
+            >
               <Link to={`/post/${post._id}`}>
                 <Text>
                   {post.postText}
@@ -35,8 +45,8 @@ const EventList = ({ posts, title }) => {
                   {post.commentCount} Comments || Click to view details!
                 </Text>
               </Link>
-            </div>
-          </div>
+            </Box>
+          </Box>
         ))}
         </VStack>
     </Box>
