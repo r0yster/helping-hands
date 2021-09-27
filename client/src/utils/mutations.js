@@ -24,18 +24,34 @@ export const ADD_USER = gql`
   }
 `;
 
-// export const ADD_VOLUNTEER = gql`
-//   mutation addVolunteer($firstName: String!, lastName: String!, $email: String!, phoneNumber: Int!) {
-//     addVolunteer(firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber) {
-//       volunteer {
-//         firstName
-//         lastName
-//         email
-//         phoneNumber
-//       }
-//     }
-//   }
-// `;
+/*export const ADD_VOLUNTEER = gql`
+
+  mutation addVolunteer($firstName: String!, lastName: String!, $email: String!, phoneNumber: String!) {
+
+     addVolunteer(firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber) {
+
+       volunteer {
+         firstName
+         lastName
+         email
+         phoneNumber
+       }
+
+     }
+
+  }
+`;*/
+
+export const ADD_VOLUNTEER = gql`
+  mutation addVolunteer($firstName: String!, $lastName: String!, $email: String!, $phoneNumber: String!) {
+    addVolunteer(firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber) {
+        firstName
+        lastName
+        email
+        phoneNumber
+    }
+  }
+`;
 
 export const ADD_POST = gql`
 mutation AddPostMutation($addPostText: String!) {

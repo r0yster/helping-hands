@@ -1,19 +1,21 @@
 import { React, useState } from "react";
-import { Stack, Button, Flex, Box, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, SimpleGrid, Text, Textarea } from "@chakra-ui/react";
 import "./Event.css";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
-import { QUERY_POSTS } from "../../utils/queries";
+import { QUERY_POSTS, QUERY_VOLUNTEERS } from "../../utils/queries";
 import { ADD_POST } from "../../utils/mutations";
-import Footer from "../Footer/Footer";
 
 import EventList from "../EventList/EventList";
+import VolunteerList from "../Volunteer/VolunteerList";
 
 const Event = () => {
   const [postText, setText] = useState("");
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading:postsQueryLoading, data:postData } = useQuery(QUERY_POSTS);
+  const { loading:volunteersQueryLoading, data:volunteerData } = useQuery(QUERY_VOLUNTEERS);
 
-  const posts = data?.posts || [];
+  const posts = postData?.posts || [];
+  const volunteers = volunteerData?.volunteers || [];
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -57,83 +59,86 @@ const Event = () => {
 
   return (
     <>
-    <Flex
-      p="4"
-      flexDirection="row"
-      width="100wh"
-      height="89vh"
-      alignItems="center"
+    <Container 
+      maxW="container.lg.xl"
+      height="100vh"
       backgroundImage="url('../images/background.jpg')"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      id="eventPage"
-      overflowY="auto"
+      p="4"
     >
-      <Box boxSize="sm" rounded="md" ml="150px">
-        <form onSubmit={handleFormSubmit}>
-          <Stack
-            rounded="md"
-            spacing={4}
-            p="2rem 2rem"
-            backgroundColor="whiteAlpha.900"
-            boxShadow="md"
-          >
-            <Text fontWeight="semibold">
-              Enter your event time, location and number of volunteers needed
-            </Text>
-            <Text
-              className={`m-0 ${
-                characterCount === 280 || error ? "text-error" : ""
-              }`}
-            >
-              Character Count: {characterCount}/280
-              {error && <span className="ml-2">Something went wrong...</span>}
-            </Text>
-            <Textarea
-              border="1px"
-              borderColor="gray.300"
-              boxShadow="2xl"
-              rounded="md"
-              bg="white"
-              spacing={4}
-              m={2}
-              placeholder="Post an event..."
-              value={postText}
-              name={postText}
-              className="form-input col-12 col-md-9"
-              onChange={handleChange}
-            ></Textarea>
-
-            <Button
-              borderRadius={0}
-              type="submit"
-              variant="solid"
-              colorScheme="teal"
-              width="full"
-              rounded="md"
-            >
-              Submit
-            </Button>
-          </Stack>
-        </form>
-
-        <div>
-          <div className="flex-row justify-space-between">
-            <div className="col-12 mb-3">
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <Box mt={100}>
-                  <EventList posts={posts} title="See Events List Below:" />
-                </Box>
-              )}
-            </div>
-          </div>
-        </div>
+      <SimpleGrid columns={[2, null, 3]} spacing="10px">
+      <Box 
+        rounded="md"
+        spacing={4}
+        p="2rem 2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
+        >
+        {postsQueryLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <EventList posts={posts} title="See Events List Below:" />
+        )}
       </Box>
-    </Flex>
-    <Footer />
+      <Box 
+        rounded="md"
+        spacing={4}
+        p="2rem 2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
+        >
+        <form onSubmit={handleFormSubmit}>
+          <Heading size="md">
+            Enter your event time, location and number of volunteers needed
+          </Heading>
+          <Text
+            className={`m-0 ${
+              characterCount === 280 || error ? "text-error" : ""
+            }`}
+          >
+            Character Count: {characterCount}/280
+            {error && <span className="ml-2">Something went wrong...</span>}
+          </Text>
+          <Textarea 
+            border="1px"
+            borderColor="gray.300"
+            boxShadow="2xl"
+            rounded="md"
+            bg="white"
+            spacing={4}
+            m={2}
+            placeholder="Post an event..."
+            value={postText}
+            name={postText}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange} />
+          <Button
+            borderRadius={0}
+            type="submit"
+            variant="solid"
+            colorScheme="teal"
+            width="full"
+            rounded="md"
+          >Submit</Button>
+        </form>
+      </Box>
+      <Box
+        rounded="md"
+        spacing={4}
+        p="2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
+        >
+        {volunteersQueryLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <VolunteerList volunteers={volunteers} title="Volunteers Available:" />
+        )}
+      </Box>
+      </SimpleGrid>
+    </Container>
     </>
   );
 };
