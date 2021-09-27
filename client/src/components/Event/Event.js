@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Box, Button, Container, SimpleGrid, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, SimpleGrid, Text, Textarea } from "@chakra-ui/react";
 import "./Event.css";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
@@ -66,14 +66,15 @@ const Event = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      p="4"
     >
       <SimpleGrid columns={[2, null, 3]} spacing="10px">
       <Box 
-        height="100%"
-        backgroundColor="whiteAlpha.900"
-        boxShadow="dark-lg"
-        p="6"
         rounded="md"
+        spacing={4}
+        p="2rem 2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
         >
         {postsQueryLoading ? (
           <div>Loading...</div>
@@ -82,16 +83,16 @@ const Event = () => {
         )}
       </Box>
       <Box 
-        height="25vh"
-        backgroundColor="whiteAlpha.900"
-        boxShadow="dark-lg"
-        p="6"
         rounded="md"
+        spacing={4}
+        p="2rem 2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
         >
         <form onSubmit={handleFormSubmit}>
-          <Text>
+          <Heading size="md">
             Enter your event time, location and number of volunteers needed
-          </Text>
+          </Heading>
           <Text
             className={`m-0 ${
               characterCount === 280 || error ? "text-error" : ""
@@ -100,19 +101,35 @@ const Event = () => {
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
           </Text>
-          <Textarea onChange={handleChange} />
-
+          <Textarea 
+            border="1px"
+            borderColor="gray.300"
+            boxShadow="2xl"
+            rounded="md"
+            bg="white"
+            spacing={4}
+            m={2}
+            placeholder="Post an event..."
+            value={postText}
+            name={postText}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange} />
           <Button
+            borderRadius={0}
             type="submit"
+            variant="solid"
+            colorScheme="teal"
+            width="full"
+            rounded="md"
           >Submit</Button>
         </form>
       </Box>
       <Box
-        height="25vh"
-        backgroundColor="whiteAlpha.900"
-        boxShadow="dark-lg"
-        p="6"
         rounded="md"
+        spacing={4}
+        p="2rem"
+        backgroundColor="whiteAlpha.900"
+        boxShadow="md"
         >
         {volunteersQueryLoading ? (
           <div>Loading...</div>

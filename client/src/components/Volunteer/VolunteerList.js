@@ -9,17 +9,32 @@ const VolunteerList = ({ volunteers, title }) => {
 
     return (
         <Box>
-            <Heading>
+            <Heading size="md">
                 {title}
             </Heading>
-            <VStack>
+            <VStack
+              pt="4"
+            >
                 {volunteers &&
                   volunteers.map((volunteer) => (
-                      <div key={volunteer._id}>
+                      <Box 
+                        width="100%"
+                        fontSize="1.30vw"
+                        borderTop="2px"
+                        borderBottom="2px"
+                        borderTopColor="gray.300"
+                        borderBottomColor="gray.300"
+                        pb="1" 
+                        key={volunteer._id}
+                      >
                           <Text>
-                              {volunteer.firstName + " " + volunteer.lastName + " " + volunteer.email + " " + volunteer.phoneNumber }
+                              {"Name: " + volunteer.firstName + " " + volunteer.lastName}
+                              <br/>
+                              {"Email: " + volunteer.email}
+                              <br/>
+                              {"Phone Number: " + volunteer.phoneNumber} 
                           </Text>
-                      </div>
+                      </Box>
                   ))}
             </VStack>
         </Box>
